@@ -2,7 +2,34 @@ package arbolB;
 
 
 public class estructura {
-    String dato;
-    estructura pagina [] = new estructura[5];
-    estructura raiz,hijoIzquierdo,hijoDerecho;
+    public int datos[] = {-1,-1,-1,-1,-1};
+    int espaciosOcupados;
+    int indice;
+    int espaciosMaximosPermitidos = 5;
+    private estructura raiz;
+    estructura hijoI,hijoD;
+
+    public estructura getRaiz() {
+        return raiz;
+    }
+
+    public void setRaiz(estructura raiz) {
+        this.raiz = raiz;
+    }
+
+    public estructura getHijoI() {
+        return hijoI;
+    }
+
+    public void setHijoI(estructura hijoI) {
+        this.hijoI = hijoI;
+    }
+
+    public estructura getHijoD() {
+        return hijoD;
+    }
+
+    public void setHijoD(estructura hijoD) {
+        this.hijoD = hijoD;
+    }
 }
