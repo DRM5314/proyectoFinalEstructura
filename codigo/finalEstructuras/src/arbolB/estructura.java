@@ -4,9 +4,9 @@ package arbolB;
 public class estructura {
     public int datos[] = {-1,-1,-1,-1,-1};
     int espaciosOcupados;
-    int indice;
+    public int indice;
     int espaciosMaximosPermitidos = 5;
-    private estructura raiz;
+    public estructura raiz;
     estructura hijoI,hijoD;
 
     public estructura getRaiz() {
