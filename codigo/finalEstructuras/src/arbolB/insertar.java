@@ -44,12 +44,12 @@ public class insertar {
                     break;
                 }else {
                     System.out.println("Tiene hijo a la izquierda");
-                    indices = insetarDato(valor, indices[i].hijoI,false);
+                    insetarDato(valor, indices[i].hijoI,false);
                     return indices;
                 }
             }else if(valor > indices[i].dato){
-                if(indices[i].hijoD != null){
-                    indices = insetarDato(valor,indices[i].hijoD,false);
+                if((i+1 < 5) && indices[i+1] == null &&indices[i].hijoD != null){
+                    insetarDato(valor,indices[i].hijoD,false);
                     return indices;
                 }
             }
@@ -81,6 +81,8 @@ public class insertar {
 //            }
         
         }
+        if(valor == 9)
+            System.out.println("perros");
         if(indices[indices.length-1] != null){
             System.out.println("va a expandir");
             int datos [] = recuperarDatos(indices);
@@ -97,10 +99,16 @@ public class insertar {
                 nuevoAnterior [0].anterior = nuevoAnterior;
                 indices = nuevoAnterior;
             }else {
-                
+                if(valor == 9)
+                    System.out.println("perradsasdf");
                 int limite2 = 0;
                 int datosInsertar = 0;
                 for (int i = 0; i < indices[0].anterior.length; i++) {
+                    if(indices[0].anterior[i]==null){
+                        indices[0].anterior[i] = new estructura();
+                        indices[0].anterior[i-1].hijoD = nuevaEstructura.hijoI;
+                        break;
+                    }
                     if(nuevaEstructura.dato > indices[0].anterior[i].dato){
                         datosInsertar++;
                     }else if(nuevaEstructura.dato < indices[0].anterior[i].dato)break;
@@ -114,20 +122,25 @@ public class insertar {
                 }
                 for (int i = 0; i < nuevaEstructura.espaciosMaximosPermitidos; i++) {
                     if(i == 0){
+                        if(datosInsertar == 5)datosInsertar--;
                         indices[0].anterior[i+datosInsertar] = nuevaEstructura;
-                        aux[i].hijoI = nuevaEstructura.hijoD;
-                        aux[i].hijoD = nuevaEstructura.hijoI;
+                        if(limite2 > 0)aux[i].hijoI = nuevaEstructura.hijoD;
+                        if(datosInsertar ==0 && limite2>0 &&aux[i+1]!=null)aux[i+1].hijoD = nuevaEstructura.hijoI;
+                        else if(datosInsertar>0 && limite2>0 && aux[i]!=null){
+                            aux[i].hijoI = nuevaEstructura.hijoD;
+                            if(datosInsertar>0)indices[0].anterior[datosInsertar-1].hijoD = nuevaEstructura.hijoI;
+                        }
                     }
                     else{
-                        if(aux[i-1] == null)break;
-                        indices[0].anterior[i+datosInsertar] = aux[i-1];                        
+                        if(limite2>0 && aux[i-1] == null)break;                        
+                        else if (limite2>0)indices[0].anterior[i+datosInsertar] = aux[i-1];                        
                     }
                 }
                 nuevaEstructura.anterior = indices[0].anterior;
                 indices = indices[0].anterior;
             }
             
-            for (int i = 0; i < indices.length; i++) {
+            for (int i = 0; i < nuevaEstructura.espaciosMaximosPermitidos ;i++) {
                 if(i<2){
                     nuevaEstructura.hijoI[i] = new estructura();
                     nuevaEstructura.hijoI[i].dato = datos[i];
