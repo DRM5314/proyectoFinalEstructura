@@ -8,6 +8,7 @@ public class insertar {
             if(indices[i] == null ){
                 indices[i] = new estructura();
                 indices[i].dato = valor;                
+                indices[i].anterior = indices[0].anterior;
                 break;
             }else
             if(valor < indices[i].dato){
@@ -30,6 +31,7 @@ public class insertar {
                     for (int j = i; j <= finale; j++) {
                         if(j == i){
                             indices[j].dato = valor;
+                            indices[j].anterior = indices[0].anterior;
                         }else
                         {
                          if(indices[j]==null)indices[j] = new estructura();
@@ -93,20 +95,32 @@ public class insertar {
             nuevaEstructura.dato = datos[2];
             nuevaEstructura.raiz = obtenerRaiz(indices[2]);
             int nuevoContador = 0;
-            if(indices[0].anterior == null || indices[0].anterior[4] != null){
+            if(indices[0].anterior == null || indices[0].anterior[3] != null){
                 estructura nuevoAnterior [] = new estructura[5];
                 nuevoAnterior [0] = nuevaEstructura;
                 nuevoAnterior [0].anterior = nuevoAnterior;
-                indices = nuevoAnterior;
+                if(indices[0].anterior == null)indices = nuevoAnterior;
+                else{
+                    for (int i = 0; i < indices[0].anterior.length; i++) {
+                        if(indices[0].anterior[3] != null && nuevaEstructura.dato < indices[0].anterior[i].dato){
+                            indices[0].anterior[i].hijoI = nuevoAnterior;
+                            break;
+                        }else if(indices[0].anterior[3] != null && nuevaEstructura.dato > indices[0].anterior[i].dato){
+                            indices[0].anterior[i].hijoD = nuevoAnterior;
+                            break;
+                        }
+                    }
+                }
             }else {
-                if(valor == 9)
+                if(valor == 60)
                     System.out.println("perradsasdf");
                 int limite2 = 0;
                 int datosInsertar = 0;
                 for (int i = 0; i < indices[0].anterior.length; i++) {
                     if(indices[0].anterior[i]==null){
-                        indices[0].anterior[i] = new estructura();
+                        indices[0].anterior[i] = nuevaEstructura;
                         indices[0].anterior[i-1].hijoD = nuevaEstructura.hijoI;
+                        datosInsertar = 5;
                         break;
                     }
                     if(nuevaEstructura.dato > indices[0].anterior[i].dato){
@@ -122,7 +136,7 @@ public class insertar {
                 }
                 for (int i = 0; i < nuevaEstructura.espaciosMaximosPermitidos; i++) {
                     if(i == 0){
-                        if(datosInsertar == 5)datosInsertar--;
+                        if(datosInsertar == 5)break;
                         indices[0].anterior[i+datosInsertar] = nuevaEstructura;
                         if(limite2 > 0)aux[i].hijoI = nuevaEstructura.hijoD;
                         if(datosInsertar ==0 && limite2>0 &&aux[i+1]!=null)aux[i+1].hijoD = nuevaEstructura.hijoI;
