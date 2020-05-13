@@ -102,12 +102,13 @@ public class insertar {
                 if(indices[0].anterior == null)indices = nuevoAnterior;
                 else{
                     for (int i = 0; i < indices[0].anterior.length; i++) {
-                        if(indices[0].anterior[3] != null && nuevaEstructura.dato < indices[0].anterior[i].dato){
-                            indices[0].anterior[i].hijoI = nuevoAnterior;
-                            break;
-                        }else if(indices[0].anterior[3] != null && nuevaEstructura.dato > indices[0].anterior[i].dato){
+                        if(i<4){
+                            if(nuevaEstructura.dato < indices[0].anterior[i].dato){
+                                indices[0].anterior[i].hijoI = nuevoAnterior;
+                                if(i>0)indices[0].anterior[i-1].hijoD = nuevoAnterior;
+                            }
+                        }else if (i==3){
                             indices[0].anterior[i].hijoD = nuevoAnterior;
-                            break;
                         }
                     }
                 }
