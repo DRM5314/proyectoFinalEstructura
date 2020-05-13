@@ -106,9 +106,11 @@ public class insertar {
                             if(nuevaEstructura.dato < indices[0].anterior[i].dato){
                                 indices[0].anterior[i].hijoI = nuevoAnterior;
                                 if(i>0)indices[0].anterior[i-1].hijoD = nuevoAnterior;
+                                break;
                             }
-                        }else if (i==3){
+                        }if (i==3){
                             indices[0].anterior[i].hijoD = nuevoAnterior;
+                            break;
                         }
                     }
                 }
