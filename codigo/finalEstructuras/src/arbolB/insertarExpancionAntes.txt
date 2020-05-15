@@ -1,0 +1,43 @@
+if(indices[indices.length-1] != null){
+            for (int i = 0; i < indices.length; i++) {
+                System.out.println("esta en el indice "+i);
+                if(indices[i]!=null)System.out.println("no,7,5,9 es nulo el indice");
+            }
+            System.out.println("excedio el limite va a expandir");
+            estructura nuevaRaiz [] = new estructura[5];
+            nuevaRaiz[0] = new estructura();
+            int posicionDivision = (indices[indices.length-1].espaciosMaximosPermitidos-1)/2;
+            nuevaRaiz[0].hijoI = new estructura[5];
+            nuevaRaiz[0].hijoD = new estructura[5];
+            int posicionHijoD = 0;
+            for (int j = 0; j < indices.length; j++) {
+                if(j < posicionDivision){
+                    nuevaRaiz[0].hijoI[j] = new estructura();
+                    nuevaRaiz[0].hijoI[j].dato = indices[j].dato;
+                    nuevaRaiz[0].hijoI[j].espaciosOcuapados++;
+                    nuevaRaiz[0].hijoI[j].padre = nuevaRaiz[0];
+                    nuevaRaiz[0].hijoI[j].anterior = indices;
+                    nuevaRaiz[0].hijoI[j].raiz = obtenerRaiz(indices[2]);
+                    System.out.println("inserto en hijo izquierdo "+indices[j].dato);
+                }else if(j > posicionDivision){
+                    nuevaRaiz[0].hijoD[posicionHijoD] = new estructura();
+                    nuevaRaiz[0].hijoD[posicionHijoD].dato = indices[j].dato;
+                    nuevaRaiz[0].hijoD[posicionHijoD].espaciosOcuapados++;
+                    nuevaRaiz[0].hijoD[posicionHijoD].padre = nuevaRaiz[0];
+                    nuevaRaiz[0].hijoD[posicionHijoD].anterior = indices;
+                    nuevaRaiz[0].hijoD[posicionHijoD].raiz = obtenerRaiz(indices[2]);
+                    posicionHijoD++;
+                    System.out.println("inserto en hijo derechoo "+indices[j].dato);
+                }else if(j == posicionDivision){
+                    nuevaRaiz[0].dato = indices[j].dato;
+                    nuevaRaiz[0].espaciosOcuapados++;
+                    nuevaRaiz[0].padre = indices[j].padre;
+                    nuevaRaiz[0].anterior = indices;
+                    nuevaRaiz[0].raiz = obtenerRaiz(nuevaRaiz[0]);
+                    indices[j].dato = 69;
+                    System.out.println("inserto en el padre del nuevo nodo"+indices[j].dato);
+                }
+            }
+            indices = nuevaRaiz;
+            return indices;            
+        }
