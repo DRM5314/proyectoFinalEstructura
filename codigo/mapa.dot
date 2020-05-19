@@ -1,0 +1,11 @@
+digraph A {
+rankdir=LR;
+hu -> guate  [label= "CG: 120.0 TC: 20.0",weight=50];
+xela -> sl  [label= "CG: 70.0 TC: 12.0",weight=50];
+xela -> R  [label= "CG: 70.0 TC: 15.0",weight=50];
+p -> SM  [label= "CG: 120.0 TC: 20.0",weight=50];
+sl -> hu  [label= "CG: 70.0 TC: 12.0",weight=50];
+guate -> SM  [label= "CG: 80.0 TC: 40.0",weight=50];
+SM -> Q  [label= "CG: 120.0 TC: 30.0",weight=50];
+R -> SM  [label= "CG: 75.0 TC: 30.0",weight=50];
+}

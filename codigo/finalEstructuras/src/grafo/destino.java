@@ -1,15 +1,15 @@
 package grafo;
 
 public class destino {
-    private String origen;
+    private origen origen;
     private String destino;
     private double tiempo_Vehiculo;
     private double tiempo_Pie;
     private double consumo_Gas;
     private double consumo_Persona;
 
-    public destino(String datos []) {
-        this.origen = datos[0];
+    public destino(String datos [],origen origenEntrada) {
+        this.origen = origenEntrada;
         this.destino = datos[1];
         this.tiempo_Vehiculo = Double.parseDouble(datos[2]);
         this.tiempo_Pie = Double.parseDouble(datos[3]);;
@@ -17,7 +17,7 @@ public class destino {
         this.consumo_Persona = Double.parseDouble(datos[5]);;
     }
 
-    public String getOrigen() {
+    public origen getOrigen() {
         return origen;
     }
 

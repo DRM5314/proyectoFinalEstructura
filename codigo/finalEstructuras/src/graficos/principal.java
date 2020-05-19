@@ -5,11 +5,21 @@
  */
 package graficos;
 
+import arbolB.estructura;
+import arbolB.obtenerCamino;
 import grafo.destino;
 import grafo.origen;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import manejadorArchivo.salidaArbol;
 import manejadorArchivo.salidaMapa;
 
 /**
@@ -21,7 +31,7 @@ public class principal extends javax.swing.JFrame {
     /**
      * Creates new form principal
      */
-    public principal() {
+    public principal() {        
         initComponents();
     }
 
@@ -38,7 +48,26 @@ public class principal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         textoArchivoEntrada = new javax.swing.JTextArea();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jButton2 = new javax.swing.JButton();
+        panelMapa = new javax.swing.JPanel();
+        labelMapa = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        radioAuto = new javax.swing.JRadioButton();
+        radioCaminando = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        listaPosicionActual = new javax.swing.JComboBox<>();
+        botonAux = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        listaDestino = new javax.swing.JComboBox<>();
+        listadoMejorRuta = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        radioMejorRuta = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        areaRutasRecorridas = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -82,12 +111,82 @@ public class principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Ver Mapa");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        panelMapa.setBackground(new java.awt.Color(194, 126, 126));
+
+        javax.swing.GroupLayout panelMapaLayout = new javax.swing.GroupLayout(panelMapa);
+        panelMapa.setLayout(panelMapaLayout);
+        panelMapaLayout.setHorizontalGroup(
+            panelMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelMapaLayout.setVerticalGroup(
+            panelMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 329, Short.MAX_VALUE)
+        );
+
+        labelMapa.setFont(new java.awt.Font("Open Sans Extrabold", 0, 17)); // NOI18N
+        labelMapa.setForeground(new java.awt.Color(214, 33, 33));
+
+        jLabel1.setText("Tipo movilizacion:");
+
+        buttonGroup1.add(radioAuto);
+        radioAuto.setSelected(true);
+        radioAuto.setText("Automovil");
+        radioAuto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioAutoActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(radioCaminando);
+        radioCaminando.setText("Caminando");
+        radioCaminando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioCaminandoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Lugar de posicion actual");
+
+        botonAux.setText("Ver rutas");
+        botonAux.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAuxActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Destino:");
+
+        listadoMejorRuta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tiempo veiculo", "tiempo pie", "consumo vehiculo", "desgaste persona" }));
+
+        jLabel4.setText("Obtener Segun:");
+
+        buttonGroup2.add(radioMejorRuta);
+        radioMejorRuta.setSelected(true);
+        radioMejorRuta.setText("Mejor Ruta");
+
+        buttonGroup2.add(jRadioButton2);
+        jRadioButton2.setText("Peor Ruta");
+
+        jButton4.setText("Obtener Ruta");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        areaRutasRecorridas.setEditable(false);
+        areaRutasRecorridas.setColumns(20);
+        areaRutasRecorridas.setFont(new java.awt.Font("Open Sans Light", 1, 18)); // NOI18N
+        areaRutasRecorridas.setRows(5);
+        jScrollPane2.setViewportView(areaRutasRecorridas);
 
         jMenu1.setText("Archivo");
 
@@ -110,13 +209,79 @@ public class principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jButton2)
-                .addGap(0, 1153, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(labelMapa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonAux)
+                .addGap(32, 32, 32))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelMapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(radioAuto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(radioCaminando)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(listaPosicionActual, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(listaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 158, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(listadoMejorRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4))
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(radioMejorRuta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton2)
-                .addGap(0, 634, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(labelMapa)
+                    .addComponent(botonAux))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(radioAuto)
+                    .addComponent(radioCaminando)
+                    .addComponent(jLabel2)
+                    .addComponent(listaPosicionActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(listaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(listadoMejorRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(radioMejorRuta)
+                            .addComponent(jRadioButton2))
+                        .addGap(0, 96, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())))
         );
 
         pack();
@@ -134,42 +299,131 @@ public class principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
     private origen origenes[];
+    private List <String> lugares;
+    private List <String> datosOrigen;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(!textoArchivoEntrada.getText().isEmpty()){            
+        if(!textoArchivoEntrada.getText().isEmpty()){
+            int opcion = JOptionPane.showConfirmDialog(null, "Desea guardar cambios?");
+            if(opcion==JOptionPane.YES_OPTION){
+                manejadorArchivo.manejador.voidGuardarArchivo(textoArchivoEntrada.getText());
+            }
+            lugares = new ArrayList<>();
             String separacionLineas [] = textoArchivoEntrada.getText().split("\n");            
-            List <String> datosOrigen = new ArrayList<>();
+            datosOrigen = new ArrayList<>();
             List <Integer> datosOrigenPosiciones = new ArrayList<>();
             for (int i = 0; i < separacionLineas.length; i++) {
-                String separacionO [] = separacionLineas[i].split("\\|");
-                if(separacionO!= null && !datosOrigen.contains(separacionO[0])){
-                    datosOrigen.add(separacionO[0]);
+                if(!separacionLineas[i].isEmpty()){
+                    String separacionO [] = separacionLineas[i].split("\\|");
+                    if(!datosOrigen.contains(separacionO[0])){
+                        datosOrigen.add(separacionO[0]);
+                    }
+                    if(!lugares.contains(separacionO[0])){
+                        lugares.add(separacionO[0]);
+                        listaPosicionActual.addItem(separacionO[0]);
+                        listaDestino.addItem(separacionO[0]);
+                    }
+                    if(!lugares.contains(separacionO[1])){
+                        lugares.add(separacionO[1]);
+                        listaPosicionActual.addItem(separacionO[1]);
+                        listaDestino.addItem(separacionO[1]);
+                    }                    
                 }
             }
             origenes = new origen[datosOrigen.size()];
             List <Integer> posicionesDestino = new ArrayList<>();
             for (int i = 0; i < datosOrigen.size(); i++) {
                 for (int j = 0; j < separacionLineas.length; j++) {
-                    String separacionO []= separacionLineas[j].split("\\|");
-                    if(separacionO[0].equals(datosOrigen.get(i)))
-                        posicionesDestino.add(j);
+                    if(!separacionLineas[j].isEmpty()){
+                        String separacionO []= separacionLineas[j].split("\\|");
+                        if(separacionO[0].equals(datosOrigen.get(i)))
+                            posicionesDestino.add(j);
+                    }
                 }
                 destino [] destinos = new destino[posicionesDestino.size()];
-                for (int j = 0; j < posicionesDestino.size(); j++) {
-                    String separacionO [] = separacionLineas[posicionesDestino.get(j)].split("\\|");
-                    destinos[j] = new destino(separacionO);
-                }
-                posicionesDestino.clear();
                 origenes[i] = new origen(datosOrigen.get(i), destinos);
+                for (int j = 0; j < posicionesDestino.size(); j++) {
+                    if(!separacionLineas[posicionesDestino.get(j)].isEmpty()){
+                        String separacionO [] = separacionLineas[posicionesDestino.get(j)].split("\\|");
+                        destinos[j] = new destino(separacionO,origenes[i]);
+                        origenes[i].agregarNombreDestino(destinos[j].getDestino());
+                    }
+                }
+                posicionesDestino.clear();                
             }
             dialogoEntrada.setVisible(false);
         }else if(JOptionPane.showConfirmDialog(null, "No se analizara nada, desea continuar?")==0)dialogoEntrada.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(origenes!=null){
-            salidaMapa.escribirMapa(origenes,false);
+    public class Imagen extends javax.swing.JPanel{
+        public Imagen (int heint,int whidt){
+            this.setSize(whidt,heint);
         }
+        public void paint(Graphics g){
+            try{
+            Dimension height = getSize();
+            String path = "../mapa.png";
+            ImageIcon img = new ImageIcon(path);
+            g.drawImage(img.getImage(), 0, 0, null);
+            setOpaque(false);
+            }
+            catch (Exception e){
+                
+            }
+        }
+    }
+    Imagen nueva; 
+    JPanel aux ;
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(origenes!=null){            
+            labelMapa.setText("");
+            salidaMapa.escribirMapa(origenes,radioCaminando.isSelected());            
+            try {
+                if(nueva!=null) nueva = null;
+                System.out.println("borro mapa");
+                panelMapa.repaint();
+                System.out.println("Cargando imagen");
+                Thread.sleep(500);
+                System.out.println("Imagen cargada al sistema");
+            } catch (InterruptedException ex) {                
+            }
+            nueva = new Imagen(panelMapa.getHeight(),panelMapa.getWidth());            
+            panelMapa.add(nueva,CENTER_ALIGNMENT);
+            panelMapa.repaint();
+        }else labelMapa.setText("No se ha ingresado algun mapa aun");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void botonAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAuxActionPerformed
+        double datos[] = {10,20,40,60,70,9,8,7};
+        arbolB.estructura insertar [] = new estructura[5];
+        for (int i = 0; i < datos.length; i++) {
+            insertar = arbolB.insertar.insetarDato(datos[i], insertar, false, null);
+        }
+        salidaArbol.escribirArbol(insertar);
+    }//GEN-LAST:event_botonAuxActionPerformed
+
+    private void radioAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioAutoActionPerformed
+        panelMapa.removeAll();
+        panelMapa.repaint();
+    }//GEN-LAST:event_radioAutoActionPerformed
+
+    private void radioCaminandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCaminandoActionPerformed
+        panelMapa.removeAll();
+        panelMapa.repaint();
+    }//GEN-LAST:event_radioCaminandoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        origen aux = grafo.manejador.buscarOrigen(listaPosicionActual.getSelectedItem().toString(), origenes);
+        String ruta="";
+        if(aux != null){
+            arbolB.estructura entrada [] = grafo.manejador.getRutas(datosOrigen, listaPosicionActual.getSelectedItem().toString(), origenes, listaDestino.getSelectedItem().toString(), aux,listadoMejorRuta.getSelectedIndex());            
+            if(entrada[0]!=null){
+                ruta = obtenerCamino.obtenerRuta(entrada, radioMejorRuta.isSelected());
+                salidaArbol.escribirArbol(entrada);
+            }
+            else ruta = "no existe camino ";            
+        }else ruta = "no existe camino ";
+        areaRutasRecorridas.setText(areaRutasRecorridas.getText()+ruta+"\n");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public origen[] getOrigenes() {
         return origenes;
@@ -211,13 +465,32 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea areaRutasRecorridas;
+    private javax.swing.JButton botonAux;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JDialog dialogoEntrada;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelMapa;
+    private javax.swing.JComboBox<String> listaDestino;
+    private javax.swing.JComboBox<String> listaPosicionActual;
+    private javax.swing.JComboBox<String> listadoMejorRuta;
+    private javax.swing.JPanel panelMapa;
+    private javax.swing.JRadioButton radioAuto;
+    private javax.swing.JRadioButton radioCaminando;
+    private javax.swing.JRadioButton radioMejorRuta;
     private javax.swing.JTextArea textoArchivoEntrada;
     // End of variables declaration//GEN-END:variables
 }

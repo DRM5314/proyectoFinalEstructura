@@ -8,9 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class salidaMapa {
-    public static void escribirMapa(origen entrada [],boolean persona){
-        try {
-            FileWriter archivoSalida = new FileWriter(new File("../mapa.dot"));
+    public static void escribirMapa(origen entrada [],boolean persona){        
             String salida;
             salida = "digraph A {"+"\n"+"rankdir=LR;\n";
             for (int i = 0; i < entrada.length; i++) {                
@@ -30,11 +28,15 @@ public class salidaMapa {
                 }
             }
             salida+="}";
-            archivoSalida.write(salida);
+            FileWriter archivoSalida;
+        try {
+            archivoSalida = new FileWriter(new File("../mapa.dot"));
+            archivoSalida.write(salida);  
             archivoSalida.close();
             new graphiz.GraphvizJava("../mapa.dot", "../mapa.png");
         } catch (IOException ex) {
             Logger.getLogger(salidaMapa.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }            
+        
     }
 }

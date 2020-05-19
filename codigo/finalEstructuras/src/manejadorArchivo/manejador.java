@@ -2,10 +2,14 @@ package manejadorArchivo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class manejador {
     public static List<String> recuperarTexto(String path){
@@ -19,5 +23,31 @@ public class manejador {
             JOptionPane.showMessageDialog(null, "Error en lectura de archivo");
         }
         return retorno;
+    }
+    public static String fileChooserGuardar(){
+        String retorno = null;
+        JFileChooser jf = new JFileChooser("."); //Logger.getLogger(grafica.class.getName()).log(Level.SEVERE, null, ex);
+        if(jf.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+            File archivo = jf.getSelectedFile(); // obtiene el archivo seleccionado            
+            // muestra error si es inválido
+            if ((archivo == null) || (archivo.getName().equals(""))) {
+                JOptionPane.showMessageDialog(null, "Nombre de archivo inválido", "Nombre de archivo inválido", JOptionPane.ERROR_MESSAGE);
+            } // fin de if
+            retorno = archivo.getName();
+            System.out.println("retorno"+retorno);
+        }
+        return retorno;
+    }
+    public static void voidGuardarArchivo(String textoEntrada){
+        String pathArchivoAbsoluto = fileChooserGuardar();
+        if(pathArchivoAbsoluto!= null){
+            System.out.println("va a guardar en "+pathArchivoAbsoluto);
+            try {
+                FileWriter archivoSalida = new FileWriter(new File(pathArchivoAbsoluto));
+                archivoSalida.write(textoEntrada);
+                archivoSalida.close();
+            } catch (IOException ex) {
+            }        
+        }
     }
 }

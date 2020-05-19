@@ -2,12 +2,13 @@
 package arbolB;
 
 public class insertar {
-    public static estructura [] insetarDato(int valor,estructura indices[],boolean expancion){
+    public static estructura [] insetarDato(double valor,estructura indices[],boolean expancion,String [] lugar){
         for (int i = 0; i < indices.length; i++) {
             //System.out.println("Analizando "+indices.datos[i]+" en posicion "+i);
             if(indices[i] == null ){
                 indices[i] = new estructura();
                 indices[i].dato = valor;                
+                indices[i].lugar = lugar;
                 indices[i].anterior = indices[0].anterior;
                 break;
             }else
@@ -19,10 +20,12 @@ public class insertar {
                         else limite++;
                     }
                     System.out.println("tiene que guardar datos de "+limite);
-                    int datos [] = new int[limite];
+                    double datos [] = new double[limite];
+                    String lugares [] = null ;
                     int a = 0;
                     for (int j = 0; j < limite; j++) {
                         datos [a] = indices[i+j].dato;
+                        lugares = indices[i+j].lugar;
                         System.out.println("guardo "+datos[a]);
                         a++;
                     }
@@ -31,11 +34,13 @@ public class insertar {
                     for (int j = i; j <= finale; j++) {
                         if(j == i){
                             indices[j].dato = valor;
+                            indices[j].lugar = lugar;
                             indices[j].anterior = indices[0].anterior;
                         }else
                         {
                          if(indices[j]==null)indices[j] = new estructura();
                          indices[j].dato = datos[a];
+                         indices[j].lugar = lugares;
                          if(indices[0].padre!= null)indices[j].padre = indices[0].padre;
                          indices[j].raiz = obtenerRaiz(indices[0]);
                          indices[j].anterior = indices[0].anterior;
@@ -46,53 +51,26 @@ public class insertar {
                     break;
                 }else {
                     System.out.println("Tiene hijo a la izquierda");
-                    insetarDato(valor, indices[i].hijoI,false);
+                    insetarDato(valor, indices[i].hijoI,false,lugar);
                     return indices;
                 }
             }else if(valor > indices[i].dato){
                 if((i+1 < 5) && indices[i+1] == null &&indices[i].hijoD != null){
-                    insetarDato(valor,indices[i].hijoD,false);
+                    insetarDato(valor,indices[i].hijoD,false,lugar);
                     return indices;
                 }
-            }
-//            if(valor > indices.datos[i]){
-//                if(indices.hijoD == null){
-//                    for (int j = i; j < indices.espaciosMaximosPermitidos; j++) {
-//                        if(indices.datos[j] == -1)indices.datos[j] = valor;
-//                        else if(valor < indices.datos[j]){
-//                            int limite = indices.espaciosMaximosPermitidos - (1+j);
-//                            int datos [] = new int[limite];
-//                            int a =0;
-//                            for (int k = j; k < limite; k++) {
-//                                datos[a] = indices.datos[k];
-//                                a++;
-//                            }
-//                            a = 0;
-//                            for (int k = j; k < indices.espaciosMaximosPermitidos; k++) {
-//                                if(k == j)indices.datos[k] = valor;
-//                                else{
-//                                    indices.datos[k] = datos[a];
-//                                    a++;
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//                indices.espaciosOcupados++;
-//                return;
-//            }
-        
+            }        
         }
-        if(valor == 9)
-            System.out.println("perros");
         if(indices[indices.length-1] != null){
             System.out.println("va a expandir");
-            int datos [] = recuperarDatos(indices);
+            double datos [] = recuperarDatos(indices);
+            String lugares [] = recuperarLugares(indices);
             estructura nuevaEstructura = new estructura();
             
             nuevaEstructura.hijoD = new estructura[5];
             nuevaEstructura.hijoI = new estructura[5];
             nuevaEstructura.dato = datos[2];
+            nuevaEstructura.lugar = lugares;
             nuevaEstructura.raiz = obtenerRaiz(indices[2]);
             int nuevoContador = 0;
             if(indices[0].anterior == null || indices[0].anterior[3] != null){
@@ -114,9 +92,7 @@ public class insertar {
                         }
                     }
                 }
-            }else {
-                if(valor == 60)
-                    System.out.println("perradsasdf");
+            }else {                
                 int limite2 = 0;
                 int datosInsertar = 0;
                 for (int i = 0; i < indices[0].anterior.length; i++) {
@@ -161,12 +137,14 @@ public class insertar {
                 if(i<2){
                     nuevaEstructura.hijoI[i] = new estructura();
                     nuevaEstructura.hijoI[i].dato = datos[i];
+                    nuevaEstructura.hijoI[i].lugar = lugares;
                     nuevaEstructura.hijoI[i].padre = nuevaEstructura;
                     nuevaEstructura.hijoI[i].raiz = obtenerRaiz(indices[2]);
                     nuevaEstructura.hijoI[i].anterior = nuevaEstructura.anterior;
                 }else if(i!=2 && i>2){
                     nuevaEstructura.hijoD[nuevoContador] = new estructura();
                     nuevaEstructura.hijoD[nuevoContador].dato = datos[i];
+                    nuevaEstructura.hijoD[nuevoContador].lugar = lugares;
                     nuevaEstructura.hijoD[nuevoContador].padre = nuevaEstructura;
                     nuevaEstructura.hijoD[nuevoContador].raiz = obtenerRaiz(indices[2]);
                     nuevaEstructura.hijoD[nuevoContador].anterior = nuevaEstructura.anterior;
@@ -179,10 +157,17 @@ public class insertar {
         
         return indices;
     }
-    private static int [] recuperarDatos (estructura entrada []){
-        int retorno [] = new int[entrada.length];
+    private static double [] recuperarDatos (estructura entrada []){
+        double retorno [] = new double[entrada.length];
         for (int i = 0; i < retorno.length; i++) {
             retorno[i] = entrada[i].dato;
+        }
+        return retorno;
+    }
+    private static String [] recuperarLugares (estructura entrada []){
+        String retorno [] = null;
+        for (int i = 0; i < entrada.length; i++) {
+            retorno = entrada[i].lugar;
         }
         return retorno;
     }

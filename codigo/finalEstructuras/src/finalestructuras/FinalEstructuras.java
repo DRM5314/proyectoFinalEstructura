@@ -8,6 +8,13 @@ public class FinalEstructuras {
     public static void main(String[] args) {
         graficos.principal nuevoGrafico = new principal();
         nuevoGrafico.setVisible(true);
+        int datos [] = {20,10,12,15};
+        String lugares [] = {"guate","SM","HU","R"};
+        arbolB.estructura arbol [] = new estructura[5];
+        for (int i = 0; i < datos.length; i++) {
+            arbol = arbolB.insertar.insetarDato(datos[i],arbol,false,lugares);
+        }
+        System.out.println("inserto");
 //        arbolB.estructura nuevaEstructura[] = new estructura[5];
 //        //int datosInsertar [] = {35,30,29,25,18};
 //        //int datosInsertar [] = {18,25,29,30,35};        
