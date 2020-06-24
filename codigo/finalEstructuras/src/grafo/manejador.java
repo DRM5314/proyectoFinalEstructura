@@ -19,7 +19,7 @@ public class manejador {
 
         return retorno;
     }
-    public static arbolB.estructura [] getRutas(List <String> datosOrigen, String posicionActual,origen origenes[],String destino,origen origenEntrada,int tipoConsumoBusqueda){
+    public static arbolB.estructura [] getRutas(List <String> datosOrigen, String posicionActual,origen origenes[],String destino,origen origenEntrada,int tipoConsumoBusqueda,boolean enCarro){
         arbolB.estructura retorno [] = new estructura[5];
         List <String> listadoOrigenDestino = origenesDestino(destino, origenes,null);
         for (int i = 0; i < listadoOrigenDestino.size(); i++) {
@@ -31,7 +31,7 @@ public class manejador {
                         int posicionUltima = rutasObtenida.get(j).length-1;
                         rutasObtenida.get(j)[posicionUltima] = destino;
                     }                
-                    retorno = insertarRuta(rutasObtenida, origenes, tipoConsumoBusqueda, retorno);
+                    retorno = insertarRuta(rutasObtenida, origenes, tipoConsumoBusqueda, retorno,enCarro);
                     rutasObtenida = null;
                 }
             }else if (origenEntrada.getNombresDestinos().contains(listadoOrigenDestino.get(i))){
@@ -41,7 +41,7 @@ public class manejador {
                 aux[1] = listadoOrigenDestino.get(i);
                 aux[2] = destino;                
                 rutasObtenida.add(aux);
-                retorno = insertarRuta(rutasObtenida, origenes, tipoConsumoBusqueda, retorno);
+                retorno = insertarRuta(rutasObtenida, origenes, tipoConsumoBusqueda, retorno,enCarro);
                 rutasObtenida = null;
             }else if (origenEntrada.getOrigen().equals(listadoOrigenDestino.get(i))){
                 rutasObtenida = new ArrayList<>();
@@ -49,7 +49,7 @@ public class manejador {
                 aux[0] = origenEntrada.getOrigen();
                 aux[1] = destino;
                 rutasObtenida.add(aux);
-                retorno = insertarRuta(rutasObtenida, origenes, tipoConsumoBusqueda, retorno);
+                retorno = insertarRuta(rutasObtenida, origenes, tipoConsumoBusqueda, retorno,enCarro);
                 rutasObtenida = null;
             }
         }
@@ -112,14 +112,15 @@ public class manejador {
         }
         return retorno;
     }
-    private static arbolB.estructura [] insertarRuta (List <String []> ruta,origen origenes[],int tipoConsumo,arbolB.estructura estructuraEntrada []){
+    private static arbolB.estructura [] insertarRuta (List <String []> ruta,origen origenes[],int tipoConsumo,arbolB.estructura estructuraEntrada [],boolean enCarro){
         arbolB.estructura retorno [] = estructuraEntrada;
         int sumador = 0;
         for (int i = 0; i < ruta.size(); i++) {
             for (int j = 0; j < ruta.get(i).length; j++) {
                 if((j+1)<ruta.get(i).length){
                     origen origenAux = buscarOrigen(ruta.get(i)[j], origenes);
-                    sumador+= obtenerDistancia(origenAux, ruta.get(i)[j+1], tipoConsumo);
+                    if(enCarro)sumador+= obtenerConsumosVehiculo(origenAux, ruta.get(i)[j+1], tipoConsumo);
+                    else sumador+= obtenerConsumosPersona(origenAux, ruta.get(i)[j+1], tipoConsumo);
                 }
             }
             retorno = arbolB.insertar.insetarDato(sumador, retorno, false, ruta.get(i));
@@ -127,18 +128,31 @@ public class manejador {
         }
         return retorno;
     }
-    private static double obtenerDistancia(origen origen, String destino,int tipoConsumo){
+    private static double obtenerConsumosPersona(origen origen, String destino,int tipoConsumo){
+        for (int i = 0; i < origen.getDestino().length; i++) {
+            if(origen.getDestino()[i].getDestino().equals(destino)){
+                switch(tipoConsumo){//utiliza una case para saber que tipo de consumo quiere saber el usuario
+                    case 0:                        
+                        return origen.getDestino()[i].getTiempo_Pie();
+                    case 1:
+                        return origen.getDestino()[i].getConsumo_Persona();
+                    case 2:
+                        return origen.getDestino()[i].getDistancia();
+                }
+            }
+        }
+        return -1;
+    }
+    private static double obtenerConsumosVehiculo(origen origen, String destino,int tipoConsumo){
         for (int i = 0; i < origen.getDestino().length; i++) {
             if(origen.getDestino()[i].getDestino().equals(destino)){
                 switch(tipoConsumo){//utiliza una case para saber que tipo de consumo quiere saber el usuario
                     case 0:                        
                         return origen.getDestino()[i].getTiempo_Vehiculo();
                     case 1:
-                        return origen.getDestino()[i].getTiempo_Pie();                        
-                    case 2:
                         return origen.getDestino()[i].getConsumo_Gas();
-                    case 3:
-                        return origen.getDestino()[i].getConsumo_Persona();
+                    case 2:
+                        return origen.getDestino()[i].getDistancia();
                 }
             }
         }

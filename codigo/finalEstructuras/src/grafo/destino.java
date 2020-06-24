@@ -7,14 +7,19 @@ public class destino {
     private double tiempo_Pie;
     private double consumo_Gas;
     private double consumo_Persona;
-
+    private double distancia;
     public destino(String datos [],origen origenEntrada) {
         this.origen = origenEntrada;
         this.destino = datos[1];
         this.tiempo_Vehiculo = Double.parseDouble(datos[2]);
-        this.tiempo_Pie = Double.parseDouble(datos[3]);;
-        this.consumo_Gas = Double.parseDouble(datos[4]);;
-        this.consumo_Persona = Double.parseDouble(datos[5]);;
+        this.tiempo_Pie = Double.parseDouble(datos[3]);
+        this.consumo_Gas = Double.parseDouble(datos[4]);
+        this.consumo_Persona = Double.parseDouble(datos[5]);
+        this.distancia = Double.parseDouble(datos[6]);
+    }
+
+    public double getDistancia() {
+        return distancia;
     }
 
     public origen getOrigen() {

@@ -1,0 +1,12 @@
+digraph g {
+node [shape = record,height=.1];
+node0[label = "<H0>|<D1> a|<H1>|<D2> b|<H2>|<D3> c|<H3>|<D4> d|<H4>"];
+
+node1[label = "<H0>|<D1> a|<H1>|<D2> b|<H2>|<D3> c|<H3>|<D4> d|<H4>"];
+node2[label = "<H0>|<D1> a|<H1>|<D2> b|<H2>|<D3> c|<H3>|<D4> d|<H4>"];
+node3[label = "<H0>|<D1> a|<H1>|<D2> b|<H2>|<D3> c|<H3>|<D4> d|<H4>"];
+"node0":H0 -> "node1":H2;
+"node0":H1 -> "node2":H2;
+"node0":H2 -> "node3":H2;
+
+}

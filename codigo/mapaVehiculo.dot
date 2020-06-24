@@ -1,0 +1,3 @@
+digraph A {
+rankdir=LR;
+SanMarcos->Quetzaltengo->SanMarcos->Tiempo_120.0;SanMarcos->Quetzaltengo->SanMarcos->Desgaste_100.0;SanMarcos->Quetzaltengo->SanMarcos->Distancia_88.0;}
