@@ -1,4 +1,4 @@
-package MejorPeorRuta;
+package mejorPeorRuta;
 
 import java.util.List;
 

@@ -6,17 +6,19 @@ import grafo.lugares;
 import grafo.origen;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import manejadorArchivo.salidaArbol;
 import manejadorArchivo.salidaMapa;
+import rutaFav.rutaFavorita;
 
 public class principal extends javax.swing.JFrame {
 
     public principal() {
         initComponents();
-        setListadosSegunMovilidad(0);
         botonMapaPanel.setToolTipText("No cargara imagenes de gran cantidad, usar boton de abrir mapa en editor.");
-        panelMapa.setToolTipText("Se mostrar el mapa en caso sea de cantidad moderada");
+        panelMapa.setToolTipText("Se mostrar el mapa en caso sea de cantidad moderada");        
     }
 
     @SuppressWarnings("unchecked")
@@ -39,18 +41,20 @@ public class principal extends javax.swing.JFrame {
         botonAux = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         listaDestino = new javax.swing.JComboBox<>();
-        listadoMejorRuta = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
         radioMejorRuta = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         botonObtenerRuta = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        areaRutasRecorridas = new javax.swing.JTextArea();
         panelMapa = new javax.swing.JTabbedPane();
         jButton3 = new javax.swing.JButton();
+        labelErrorRuta = new javax.swing.JLabel();
+        listadoRutasFav = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         dialogoEntrada.setSize(new java.awt.Dimension(936, 441));
 
@@ -131,13 +135,13 @@ public class principal extends javax.swing.JFrame {
 
         jLabel3.setText("Destino:");
 
-        jLabel4.setText("Obtener Segun:");
-
         buttonGroup2.add(radioMejorRuta);
+        radioMejorRuta.setForeground(new java.awt.Color(181, 155, 155));
         radioMejorRuta.setSelected(true);
         radioMejorRuta.setText("Mejor Ruta");
 
         buttonGroup2.add(jRadioButton2);
+        jRadioButton2.setForeground(new java.awt.Color(176, 157, 157));
         jRadioButton2.setText("Peor Ruta");
 
         botonObtenerRuta.setText("Obtener Ruta");
@@ -147,16 +151,21 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
-        areaRutasRecorridas.setEditable(false);
-        areaRutasRecorridas.setColumns(20);
-        areaRutasRecorridas.setFont(new java.awt.Font("Open Sans Light", 1, 18)); // NOI18N
-        areaRutasRecorridas.setRows(5);
-        jScrollPane2.setViewportView(areaRutasRecorridas);
-
         jButton3.setText("Cargar Mapa a editor");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        listadoRutasFav.setFont(new java.awt.Font("Open Sans Extrabold", 0, 18)); // NOI18N
+
+        jLabel4.setText("Rutas favoritas");
+
+        jButton2.setText("Ver Arbol");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -173,6 +182,18 @@ public class principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("Ayuda");
+
+        jMenuItem2.setText("No carga el mapa");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -186,41 +207,44 @@ public class principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelMapa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(listadoRutasFav, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(botonAux)
                 .addGap(32, 32, 32))
+            .addComponent(panelMapa)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(radioAuto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(radioCaminando)
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(listaPosicionActual, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(listaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 214, Short.MAX_VALUE))
+                        .addGap(401, 401, 401)
+                        .addComponent(labelErrorRuta))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(botonObtenerRuta))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(listadoMejorRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(radioAuto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(radioCaminando)
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(listaPosicionActual, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(botonObtenerRuta))
-                            .addComponent(jLabel4)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(listaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(radioMejorRuta)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2)))
-                .addContainerGap())
-            .addComponent(panelMapa)
+                                .addComponent(jRadioButton2)))))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,10 +253,15 @@ public class principal extends javax.swing.JFrame {
                     .addComponent(botonMapaPanel)
                     .addComponent(labelMapa)
                     .addComponent(botonAux)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(listadoRutasFav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelMapa, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelMapa, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelErrorRuta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(radioAuto)
@@ -241,22 +270,12 @@ public class principal extends javax.swing.JFrame {
                     .addComponent(listaPosicionActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(listaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(listadoMejorRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonObtenerRuta))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(radioMejorRuta)
-                            .addComponent(jRadioButton2))
-                        .addGap(0, 96, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addContainerGap())))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonObtenerRuta)
+                    .addComponent(radioMejorRuta)
+                    .addComponent(jRadioButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -311,40 +330,27 @@ public class principal extends javax.swing.JFrame {
 
     private void botonAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAuxActionPerformed
         //double datos[] = {10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170};
-        double datos[] = {170,160,150,140,130,120,110,100,90,80,70,60,50,40,30,20,10,9,8,7};
+        double datos[] = {10,11,12,13,14,15,16,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,0,1,2,3,4,5,6,7,21,22,23,24,25,26,27};
         arbolB.estructura insertar[] = new estructura[5];
         for (int i = 0; i < datos.length; i++) {
             insertar = arbolB.insertar.insetarDato(datos[i], insertar, false, null);
         }
-        String salida = salidaArbol.estructurarDot(insertar,"",0,0);
+        salidaArbol.estructurarDot(insertar);
         graphiz.GraphvizJava.dibujar("../arbol.dot", "../arbol.png");
         System.out.println("termino");
         //salidaArbol.escribirArbol(insertar);
     }//GEN-LAST:event_botonAuxActionPerformed
-    private void setListadosSegunMovilidad(int tipo) {
-        //tipo 0 es carro tipo 1 es persona
-        listadoMejorRuta.removeAllItems();
-        switch (tipo) {
-            case 0:
-                listadoMejorRuta.addItem("Tiempo en Vehiculo");
-                listadoMejorRuta.addItem("Consumo en Vehiculo");
-                listadoMejorRuta.addItem("Distancia");
-                break;
-            case 1:
-                listadoMejorRuta.addItem("Tiempo caminando");
-                listadoMejorRuta.addItem("Consumo Caminando");
-                listadoMejorRuta.addItem("Distancia");
-                break;
-        }
-    }
+    
     private void radioAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioAutoActionPerformed
-        setListadosSegunMovilidad(0);
+        
     }//GEN-LAST:event_radioAutoActionPerformed
 
     private void radioCaminandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCaminandoActionPerformed
-        setListadosSegunMovilidad(1);
+        
     }//GEN-LAST:event_radioCaminandoActionPerformed
-
+    private ArrayList<String> rutasFavoritas = new ArrayList<>();
+    private ArrayList<Integer> contadorRutasFavoritas = new ArrayList<>();
+    private rutaFavorita rutasFav = null;
     private void botonObtenerRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonObtenerRutaActionPerformed
         origen aux = null;
         if(origenes!=null)aux = grafo.manejador.buscarOrigen(listaPosicionActual.getSelectedItem().toString(), origenes);
@@ -356,7 +362,7 @@ public class principal extends javax.swing.JFrame {
         if (aux != null) {
             entrada = grafo.manejador.getRutas(datosOrigen, listaPosicionActual.getSelectedItem().toString(), origenes, listaDestino.getSelectedItem().toString(), aux, 0, radioAuto.isSelected());
             if (entrada[0] != null) {
-                ruta=(obtenerCamino.obtenerRuta(entrada, radioMejorRuta.isSelected()));
+                ruta=(obtenerCamino.obtenerRuta(entrada, radioMejorRuta.isSelected()));                
                 posicionFinal[0]=ruta.size()-1;
                 //salidaArbol.escribirArbol(entrada);
             }
@@ -393,8 +399,6 @@ public class principal extends javax.swing.JFrame {
                     posicionFinal[2]=ruta.size()-1;
                 }
                 banderaCaminando = true;
-            } else {
-                errorRuta = "No existe Ruta";
             }
         }            
         } else if (radioCaminando.isSelected()) {
@@ -419,29 +423,59 @@ public class principal extends javax.swing.JFrame {
                     posicionFinal[2]=ruta.size()-1;
                 }
                 banderaCaminando = true;
-            } else {
-                errorRuta = "No existe Ruta";
             }
-        } else {
-            errorRuta = "No existe ruta";
-        }
-        String informeAterior = areaRutasRecorridas.getText();
-        if(errorRuta!=null)areaRutasRecorridas.setText(informeAterior+errorRuta+"\n");
+        } 
         if(ruta!=null){
+            salidaArbol.estructurarDot(entrada);
+            labelErrorRuta.setText("");
+            String nombreImagen;
             if(radioCaminando.isSelected()){
                 if(banderaCaminando)ruta = obtenerCamino.invertidor(ruta,posicionFinal);
+                if(rutasFavoritas.contains(ruta))
                 salidaMapa.escribirMapa_Mejor_Peor_Ruta(ruta,posicionFinal,"Persona");
                 graphiz.GraphvizJava.dibujar("../mapaPersona.dot","../mapaPersona.png");
+                nombreImagen = "mapaPersona";
+                rutasFav = rutaFavorita.verificarRuta(listaDestino.getSelectedItem().toString()+"-"+listaPosicionActual.getSelectedItem().toString(), rutasFav);
             }else{
                 salidaMapa.escribirMapa_Mejor_Peor_Ruta(ruta,posicionFinal,"Vehiculo");
                 graphiz.GraphvizJava.dibujar("../mapaVehiculo.dot","../mapaVehiculo.png");
+                nombreImagen = "mapaVehiculo";
+                rutasFav = rutaFavorita.verificarRuta(listaPosicionActual.getSelectedItem().toString()+"-"+listaDestino.getSelectedItem().toString(), rutasFav);
             }
-        }else areaRutasRecorridas.setText(informeAterior+errorRuta+"\n");
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            }            
+            if(origenes!=null)manejadorArchivo.manejador.abrirArchivo1("../"+nombreImagen+".png");
+            graphiz.GraphvizJava.dibujar("../arbol.dot", "../arbol.png");
+        }else {
+            labelErrorRuta.setText("No existe ruta");            
+        }
+        insertarListaFav();
     }//GEN-LAST:event_botonObtenerRutaActionPerformed
-
+    
+    private void insertarListaFav(){
+        rutasFavoritas = rutaFavorita.rutasFav(rutasFav, rutasFavoritas);
+        listadoRutasFav.removeAllItems();
+        for (int i = 0; i < rutasFavoritas.size(); i++) {
+            listadoRutasFav.addItem(rutasFavoritas.get(i));
+        }
+        if(rutasFavoritas.size()==0){
+            listadoRutasFav.addItem("Sin rutas fav");
+        }
+    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(origenes!=null)manejadorArchivo.manejador.abrirArchivo1("../mapa.png");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        JOptionPane.showMessageDialog(null, "Si la imagen es muy grande no podra ser vista en el panel, debera cargar a su editor de imagenes");
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        manejadorArchivo.manejador.abrirArchivo1("../arbol.png");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public origen[] getOrigenes() {
         return origenes;
@@ -483,7 +517,6 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea areaRutasRecorridas;
     private javax.swing.JButton botonAux;
     private javax.swing.JButton botonMapaPanel;
     private javax.swing.JButton botonObtenerRuta;
@@ -491,21 +524,24 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JDialog dialogoEntrada;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelErrorRuta;
     private javax.swing.JLabel labelMapa;
     private javax.swing.JComboBox<String> listaDestino;
     private javax.swing.JComboBox<String> listaPosicionActual;
-    private javax.swing.JComboBox<String> listadoMejorRuta;
+    private javax.swing.JComboBox<String> listadoRutasFav;
     private javax.swing.JTabbedPane panelMapa;
     private javax.swing.JRadioButton radioAuto;
     private javax.swing.JRadioButton radioCaminando;

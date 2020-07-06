@@ -4,69 +4,148 @@ import arbolB.estructura;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class salidaArbol {
 
-    //digraph g {node [shape = record,height=.1];node0[label = "<H0>|<D0>9.0|<H1>|<D1>40.0"];}
-    public static String estructurarDot(estructura entrada[], String salida, int nodo, int contador) {
-        String termino = datosRaiz(entrada, "");
-        System.out.println("gin");
-        if (entrada == null || contador == 3) {
-            System.out.println("Termino de imprimir un lado");
-            return salida;
-        }
-        salida = "node" + nodo + "[label = \"";
-        if (entrada[contador] != null) {
-            salida += "<H" + contador + ">|<D" + contador + ">" + entrada[contador].dato;
-            if ((contador + 1) < entrada.length && entrada[contador + 1] != null) {
-                salida += "|";
+    //digraph g {node [shape = record,height=.1];node0[label = "<H0>|<D0>9.0|<H1>|<D1>40.0"];}    
+    public static void estructurarDot(estructura entrada[]) {
+        String termino = datosRaiz(entrada, "raiz \n", new ArrayList<>());
+        String separadorLineas[] = termino.split("\n");
+        String salidaArchivo = "";
+        if (separadorLineas.length > 0) {
+            salidaArchivo += "digraph g { \nnode [shape = record,height=.1];";
+            for (int i = 0; i < separadorLineas.length; i++) {
+                String separadorEpacios[] = separadorLineas[i].split(" ");
+                if (i % 2 == 0) {
+                    salidaArchivo += "node" + (i / 2) + " [label =\"";
+                }
+                for (int j = 0; j < separadorEpacios.length; j++) {
+                    if (separadorEpacios[j].equals("raiz")) {
+                        String datosRaiz[] = separadorLineas[i + 1].split(" ");
+                        for (int k = 0; k < datosRaiz.length; k++) {
+                            if(k>0)salidaArchivo += "|";
+                            salidaArchivo += "<f" + k + "> |"+datosRaiz[k];
+                        }
+                        salidaArchivo += "|<f" + datosRaiz.length + ">\"];";
+                        System.out.println("imprimio raiz");
+                        salidaArchivo+="\n";
+                    } else if (separadorEpacios[j].equals("Padre")) {
+                        String datosRaiz[] = separadorLineas[i + 1].split(" ");
+                        for (int k = 0; k < datosRaiz.length; k++) {
+                            if(k>0)salidaArchivo += "|";
+                            salidaArchivo += "<f" + k + "> |" + datosRaiz[k];
+                        }
+                        salidaArchivo += "|<f" + datosRaiz.length + ">\"];";
+                        System.out.println("imprimio hijos");                        
+                    }                    
+                }
+                salidaArchivo+="\n";
             }
+            int numeroDatosSinRaiz = separadorLineas.length - 2;
+            if (numeroDatosSinRaiz / 2 > 0) {
+                int aux = 0;
+                for (int i = 0; i < separadorLineas.length; i++) {
+                    String separadorEspacios [] = separadorLineas[i].split(" ");
+                    for (int j = 0; j < separadorEspacios.length; j++) {
+                        if(separadorEspacios[j].equals("raiz")){
+                            String auxDatos [] = separadorLineas[i+1].split(" ");
+                            for (int k = 0; k < auxDatos.length+1; k++) {
+                                aux = 2*k+3;
+                                String ubicacionCentro [] = separadorLineas[aux].split(" ");
+                                salidaArchivo+="\"node0\":f"+k+" -> \"node"+(k+1)+"\":f"+(ubicacionCentro.length/2)+";";
+                                salidaArchivo+="\n";
+                            }
+                        }
+                    }                    
+                }
+                System.out.println("salio con aux de "+aux);
+            }
+            salidaArchivo += "}";
+            FileWriter archivoSalida;
+        try {
+            archivoSalida = new FileWriter(new File("../arbol.dot"));
+            archivoSalida.write(salidaArchivo);
+            archivoSalida.close();
+            archivoSalida = new FileWriter(new File("../arbol.png"));
+            archivoSalida.write("");
+            archivoSalida.close();
+        } catch (IOException ex) {
+            Logger.getLogger(salidaMapa.class.getName()).log(Level.SEVERE, null, ex);
         }
-        salida += "\"];\n";
-        salida += estructurarDot(entrada[contador].hijoI, salida, nodo + 1, contador + 1);
-        return salida;
+            
+        }
     }
 
-    private static String datosRaiz(estructura[] datos, String retorno) {
+    private static void imprimirArbol(String datos) {
+        String[] separadorLineas = datos.split("\n");
+        for (int i = 0; i < separadorLineas.length; i++) {
+            String[] separadorEspacios = separadorLineas[i].split(" ");
+
+        }
+    }
+
+    private static String datosRaiz(estructura[] datos, String retorno, ArrayList<Double[]> datosSalida) {
         estructura hijo[] = datos;
         estructura hijoAux[] = datos;
-        String aux="";
+        String aux = "";
         int contador = 0;
-        while (hijo != null) {            
-            if(contador==5){
+        Double[] auxInsertar = new Double[2];
+        while (hijo != null) {
+            if (contador == 5) {
                 break;
             }
             for (int i = 0; i < hijo.length; i++) {
                 if (hijo[i] != null) {
-                    retorno += hijo[i].dato + "  ";
+                    retorno += hijo[i].dato + " ";
+                    auxInsertar[0] = new Double(1);
+                    auxInsertar[1] = hijo[i].dato;
+                    datosSalida.add(auxInsertar);
                 } else {
                     break;
                 }
             }
-            retorno += "\n";                        
+            retorno += "\n";
             if (datos[contador] != null) {
-                retorno += "Padre " + datos[contador].dato+"\n";
+                if (datos[contador].hijoD != null || datos[contador].hijoI != null) {
+                    retorno += "Padre " + datos[contador].dato + "\n";
+                    auxInsertar[0] = new Double(0);
+                    auxInsertar[1] = datos[contador].dato;
+                    datosSalida.add(auxInsertar);
+                }
                 if (datos[contador].hijoI != null) {
                     hijo = datos[contador].hijoI;
-                }else break;
-            }else{                                
-                retorno+=aux;
-                aux="";
+                } else {
+                    break;
+                }
+            } else {
+                retorno += aux;
+                aux = "";
                 break;
             }
-            if(contador < 4){
-                if(datos[contador+1]==null && datos[contador]!=null && datos[contador].hijoD!=null){
-                    aux+="Padre "+datos[contador].dato+"\n";
-                    String aux2 = datosRaiz(datos[contador].hijoD,"");
-                    if(!aux2.equals(aux))aux+=aux2;else aux = "";
+            if (contador < 4) {
+                if (datos[contador + 1] == null && datos[contador] != null && datos[contador].hijoD != null) {
+                    aux += "Padre " + datos[contador].dato + "\n";
+                    auxInsertar[0] = new Double(0);
+                    auxInsertar[1] = datos[contador].dato;
+                    datosSalida.add(auxInsertar);
+                    String aux2 = datosRaiz(datos[contador].hijoD, "", datosSalida);
+                    if (!aux2.equals(aux)) {
+                        aux += aux2;
+                    } else {
+                        aux = "";
+                    }
                     hijoAux = datos[contador].hijoD;
-                    System.out.println("agrego hijos, el padre es "+aux);
+                    System.out.println("agrego hijos, el padre es " + aux);
                 }
-                if (hijo[0]!=null && hijo[0].hijoI!=null){
-                    retorno+="Padre "+hijo[0].dato+"\n";
-                    retorno+= datosRaiz(hijo,"");
+                if (hijo[0] != null && hijo[0].hijoI != null) {
+                    retorno += "Padre " + hijo[0].dato + "\n";
+                    auxInsertar[0] = new Double(0);
+                    auxInsertar[1] = hijo[0].dato;
+                    datosSalida.add(auxInsertar);
+                    retorno += datosRaiz(hijo, "", datosSalida);
                 }
             }
             contador++;
