@@ -13,6 +13,7 @@ public class salidaArbol {
     //digraph g {node [shape = record,height=.1];node0[label = "<H0>|<D0>9.0|<H1>|<D1>40.0"];}    
     public static void estructurarDot(estructura entrada[]) {
         String termino = datosRaiz(entrada, "raiz \n", new ArrayList<>());
+        String auxNodoEscritura = "";
         String separadorLineas[] = termino.split("\n");
         String salidaArchivo = "";
         if (separadorLineas.length > 0) {
@@ -20,62 +21,109 @@ public class salidaArbol {
             for (int i = 0; i < separadorLineas.length; i++) {
                 String separadorEpacios[] = separadorLineas[i].split(" ");
                 if (i % 2 == 0) {
-                    salidaArchivo += "node" + (i / 2) + " [label =\"";
+                    salidaArchivo += "\n";
+                    auxNodoEscritura += "node" + (i / 2) + " [label =\"";
                 }
                 for (int j = 0; j < separadorEpacios.length; j++) {
                     if (separadorEpacios[j].equals("raiz")) {
                         String datosRaiz[] = separadorLineas[i + 1].split(" ");
-                        for (int k = 0; k < datosRaiz.length; k++) {
-                            if(k>0)salidaArchivo += "|";
-                            salidaArchivo += "<f" + k + "> |"+datosRaiz[k];
+                        for (int k = 0; k < datosRaiz.length; k++) {                            
+                            if (!datosRaiz[k].equals("InicioNietos")) {
+                                if(k==0)salidaArchivo += auxNodoEscritura;
+                                if (k > 0) {
+                                    salidaArchivo += "|";
+                                }
+                                salidaArchivo += "<f" + k + "> |" + datosRaiz[k];
+                                if (k + 1 == datosRaiz.length) {
+                                    salidaArchivo += "|<f" + datosRaiz.length + ">\"];";
+                                }
+                            }else break;
                         }
-                        salidaArchivo += "|<f" + datosRaiz.length + ">\"];";
                         System.out.println("imprimio raiz");
-                        salidaArchivo+="\n";
-                    } else if (separadorEpacios[j].equals("Padre")) {
+                        salidaArchivo += "\n";
+                    } else if (separadorEpacios[j].equals("Padre")) {                        
                         String datosRaiz[] = separadorLineas[i + 1].split(" ");
                         for (int k = 0; k < datosRaiz.length; k++) {
-                            if(k>0)salidaArchivo += "|";
-                            salidaArchivo += "<f" + k + "> |" + datosRaiz[k];
+                            if (!datosRaiz[k].equals("InicioNietos")) {
+                                if(k==0)salidaArchivo += auxNodoEscritura;
+                                if (k > 0) {
+                                    salidaArchivo += "|";
+                                }
+                                salidaArchivo += "<f" + k + "> |" + datosRaiz[k];
+                                if (k + 1 == datosRaiz.length) {
+                                    salidaArchivo += "|<f" + datosRaiz.length + ">\"];";
+                                }
+                            }else break;
                         }
-                        salidaArchivo += "|<f" + datosRaiz.length + ">\"];";
-                        System.out.println("imprimio hijos");                        
-                    }                    
+                        System.out.println("imprimio hijos");
+                    } else if (separadorEpacios[j].equals("InicioNietos")) {                        
+                        String datosRaiz[] = separadorLineas[i].split(" ");
+                        salidaArchivo += "node" + (i / 2) + " [label =\"";
+                        for (int k = 1; k < datosRaiz.length; k++) {
+                            if (k > 0) {
+                                salidaArchivo += "|";
+                            }
+                            salidaArchivo += "<f" + k + "> |" + datosRaiz[k];
+                            if (k + 1 == datosRaiz.length) {
+                                salidaArchivo += "|<f" + datosRaiz.length + ">\"];";
+                            }
+                        }
+                        i++;
+                        for (int k = i; k < separadorLineas.length; k++) {
+                            String datosRaiz1[] = separadorLineas[k+1].split(" ");                            
+                            if(datosRaiz1.length>0 && datosRaiz1[0].equals("FinNietos")){
+                                k++;
+                                i=k;
+                                break;
+                            }
+                            salidaArchivo += "node" + (k / 2) + " [label =\"";
+                            for (int L = 0; L < datosRaiz1.length; L++) {
+                                if (L > 0) {
+                                    salidaArchivo += "|";
+                                }
+                                salidaArchivo += "<f" + L + "> |" + datosRaiz1[L];
+                                if (L + 1 == datosRaiz1.length) {
+                                    salidaArchivo += "|<f" + datosRaiz1.length + ">\"];";
+                                }
+                            }
+                            
+                        }
+                        break;
+                    }
                 }
-                salidaArchivo+="\n";
+                auxNodoEscritura = "";
             }
             int numeroDatosSinRaiz = separadorLineas.length - 2;
             if (numeroDatosSinRaiz / 2 > 0) {
                 int aux = 0;
                 for (int i = 0; i < separadorLineas.length; i++) {
-                    String separadorEspacios [] = separadorLineas[i].split(" ");
+                    String separadorEspacios[] = separadorLineas[i].split(" ");
                     for (int j = 0; j < separadorEspacios.length; j++) {
-                        if(separadorEspacios[j].equals("raiz")){
-                            String auxDatos [] = separadorLineas[i+1].split(" ");
-                            for (int k = 0; k < auxDatos.length+1; k++) {
-                                aux = 2*k+3;
-                                String ubicacionCentro [] = separadorLineas[aux].split(" ");
-                                salidaArchivo+="\"node0\":f"+k+" -> \"node"+(k+1)+"\":f"+(ubicacionCentro.length/2)+";";
-                                salidaArchivo+="\n";
+                        if (separadorEspacios[j].equals("raiz")) {
+                            String auxDatos[] = separadorLineas[i + 1].split(" ");
+                            for (int k = 0; k < auxDatos.length + 1; k++) {
+                                aux = 2 * k + 3;
+                                String ubicacionCentro[] = separadorLineas[aux].split(" ");
+                                salidaArchivo += "\"node0\":f" + k + " -> \"node" + (k + 1) + "\":f" + (ubicacionCentro.length / 2) + ";";
+                                salidaArchivo += "\n";
                             }
                         }
-                    }                    
+                    }
                 }
-                System.out.println("salio con aux de "+aux);
             }
             salidaArchivo += "}";
             FileWriter archivoSalida;
-        try {
-            archivoSalida = new FileWriter(new File("../arbol.dot"));
-            archivoSalida.write(salidaArchivo);
-            archivoSalida.close();
-            archivoSalida = new FileWriter(new File("../arbol.png"));
-            archivoSalida.write("");
-            archivoSalida.close();
-        } catch (IOException ex) {
-            Logger.getLogger(salidaMapa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+            try {
+                archivoSalida = new FileWriter(new File("../arbol.dot"));
+                archivoSalida.write(salidaArchivo);
+                archivoSalida.close();
+                archivoSalida = new FileWriter(new File("../arbol.png"));
+                archivoSalida.write("");
+                archivoSalida.close();
+            } catch (IOException ex) {
+                Logger.getLogger(salidaMapa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }
 
@@ -141,11 +189,12 @@ public class salidaArbol {
                     System.out.println("agrego hijos, el padre es " + aux);
                 }
                 if (hijo[0] != null && hijo[0].hijoI != null) {
-                    retorno += "Padre " + hijo[0].dato + "\n";
+                    retorno += "InicioNietos ";
                     auxInsertar[0] = new Double(0);
                     auxInsertar[1] = hijo[0].dato;
                     datosSalida.add(auxInsertar);
                     retorno += datosRaiz(hijo, "", datosSalida);
+                    retorno += "FinNietos ";
                 }
             }
             contador++;

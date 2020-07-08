@@ -1,27 +1,1065 @@
 digraph A {
 rankdir=LR;
-hu -> guate  [label= " CP: 3.0 	TP: 2.0
-CV: 120.0 	TV: 20.0
-   Distancia = 7575.0",weight=50];
-xela -> sl  [label= " CP: 15.0 	TP: 3.0
-CV: 70.0 	TV: 12.0
-   Distancia = 75.0",weight=50];
-xela -> R  [label= " CP: 30.0 	TP: 1.0
-CV: 70.0 	TV: 15.0
-   Distancia = 75.0",weight=50];
-p -> SM  [label= " CP: 75.0 	TP: 2.0
-CV: 120.0 	TV: 20.0
-   Distancia = 75.0",weight=50];
-sl -> hu  [label= " CP: 30.0 	TP: 3.0
-CV: 70.0 	TV: 12.0
-   Distancia = 75.0",weight=50];
-guate -> SM  [label= " CP: 95.0 	TP: 1.0
-CV: 80.0 	TV: 40.0
-   Distancia = 75.0",weight=50];
-SM -> Q  [label= " CP: 35.0 	TP: 1.0
-CV: 120.0 	TV: 30.0
-   Distancia = 75.0",weight=50];
-R -> SM  [label= " CP: 90.0 	TP: 2.0
-CV: 75.0 	TV: 30.0
-   Distancia = 75.0",weight=50];
+SanMarcos -> Quetzaltengo  [label= " CP: 250.0 	TP: 128.0
+CV: 50.0 	TV: 60.0
+   Distancia = 44.0",weight=50];
+SanMarcos -> Chuarrancho  [label= " CP: 759.0 	TP: 63.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+SanMarcos -> SanBartoloméMilpasAltas  [label= " CP: 63.0 	TP: 425.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+SanMarcos -> Yepocapa  [label= " CP: 425.0 	TP: 46.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+SanMarcos -> Barberena  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+SanMarcos -> SanAndrésSemetabaj  [label= " CP: 555.0 	TP: 456.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+SanMarcos -> Salcajá  [label= " CP: 456.0 	TP: 51.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+SanMarcos -> PalestinadelosAltos  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+SanMarcos -> SanJoséLaMáquina  [label= " CP: 759.0 	TP: 495.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+SanMarcos -> SanRafaelPiedelaCuesta  [label= " CP: 495.0 	TP: 47.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+SanMarcos -> Chiantla  [label= " CP: 425.0 	TP: 46.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+SanMarcos -> SanAntonioHuista  [label= " CP: 46.0 	TP: 62.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+SanMarcos -> Joyabaj  [label= " CP: 62.0 	TP: 456.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+SanMarcos -> SanCristóbalVerapaz  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+SanMarcos -> SantaAna  [label= " CP: 453.0 	TP: 759.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+SanMarcos -> SanDiego  [label= " CP: 759.0 	TP: 63.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+SanMarcos -> Monjas  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quetzaltengo -> SanMarcos  [label= " CP: 250.0 	TP: 128.0
+CV: 50.0 	TV: 60.0
+   Distancia = 44.0",weight=50];
+Quetzaltengo -> Salola  [label= " CP: 250.0 	TP: 128.0
+CV: 50.0 	TV: 60.0
+   Distancia = 44.0",weight=50];
+Quetzaltengo -> Retalhuleu  [label= " CP: 250.0 	TP: 128.0
+CV: 50.0 	TV: 60.0
+   Distancia = 44.0",weight=50];
+Solola -> Chimaltenago  [label= " CP: 250.0 	TP: 128.0
+CV: 50.0 	TV: 60.0
+   Distancia = 44.0",weight=50];
+Chimaltenago -> Guatemala  [label= " CP: 250.0 	TP: 128.0
+CV: 50.0 	TV: 60.0
+   Distancia = 44.0",weight=50];
+Retalhuleu -> Suchitepequez  [label= " CP: 250.0 	TP: 128.0
+CV: 50.0 	TV: 60.0
+   Distancia = 44.0",weight=50];
+Retalhuleu -> SanRaymundo  [label= " CP: 453.0 	TP: 42.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Retalhuleu -> SantiagoSacatepéquez  [label= " CP: 42.0 	TP: 495.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Retalhuleu -> Acatenango  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Retalhuleu -> Cuilapa  [label= " CP: 425.0 	TP: 46.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Retalhuleu -> Concepción  [label= " CP: 46.0 	TP: 555.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Retalhuleu -> Quetzaltenango  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Retalhuleu -> LaEsperanza  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Retalhuleu -> RíoBravo  [label= " CP: 453.0 	TP: 759.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Retalhuleu -> Tejutla  [label= " CP: 759.0 	TP: 63.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Retalhuleu -> Huehuetenango  [label= " CP: 495.0 	TP: 47.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Retalhuleu -> SanJuanIxcoy  [label= " CP: 47.0 	TP: 123.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Retalhuleu -> SanJuanCotzal  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+Retalhuleu -> SantaCruzVerapaz  [label= " CP: 62.0 	TP: 456.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Retalhuleu -> SanFrancisco  [label= " CP: 456.0 	TP: 453.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Retalhuleu -> Cabañas  [label= " CP: 453.0 	TP: 42.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Retalhuleu -> SanCarlosAlzatate  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Suchitepequez -> Guatemala  [label= " CP: 2500.0 	TP: 250.0
+CV: 60.0 	TV: 70.0
+   Distancia = 70.0",weight=50];
+ElProgreso -> SantaCatarinaPinula  [label= " CP: 524.0 	TP: 456.0
+CV: 50.0 	TV: 62.0
+   Distancia = 48.0",weight=50];
+ElProgreso -> Sansare  [label= " CP: 456.0 	TP: 51.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+ElProgreso -> SanJoséPoaquil  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+ElProgreso -> LaGomera  [label= " CP: 759.0 	TP: 495.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+ElProgreso -> NuevaSantaRosa  [label= " CP: 495.0 	TP: 47.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+ElProgreso -> Totonicapán  [label= " CP: 425.0 	TP: 46.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+ElProgreso -> Cantel  [label= " CP: 46.0 	TP: 62.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+ElProgreso -> SanMiguelPanán  [label= " CP: 62.0 	TP: 456.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+ElProgreso -> SanMarcos  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+ElProgreso -> Ixchiguán  [label= " CP: 453.0 	TP: 759.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+ElProgreso -> SanRafaelLaIndependencia  [label= " CP: 759.0 	TP: 63.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+ElProgreso -> Chiché  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+ElProgreso -> SanMiguelChicaj  [label= " CP: 425.0 	TP: 123.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+ElProgreso -> FrayBartolomédelasCasas  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+ElProgreso -> Morales  [label= " CP: 62.0 	TP: 456.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+ElProgreso -> Zapotitlán  [label= " CP: 51.0 	TP: 759.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Sacatepéquez -> SanJoséPinula  [label= " CP: 634.0 	TP: 453.0
+CV: 51.0 	TV: 32.0
+   Distancia = 54.0",weight=50];
+Sacatepéquez -> Sanarate  [label= " CP: 453.0 	TP: 42.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sacatepéquez -> SanMartínJilotepeque  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sacatepéquez -> Guanagazapa  [label= " CP: 495.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sacatepéquez -> SantaRosamunicipionodeclarado  [label= " CP: 425.0 	TP: 46.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Sacatepéquez -> SanCristóbalTotonicapán  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+Sacatepéquez -> Huitán  [label= " CP: 555.0 	TP: 50.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+Sacatepéquez -> SanGabriel  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Sacatepéquez -> SanPedroSacatepéquez  [label= " CP: 51.0 	TP: 759.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+Sacatepéquez -> SanJoséOjetenam  [label= " CP: 759.0 	TP: 495.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Sacatepéquez -> TodosSantosCuchumatán  [label= " CP: 495.0 	TP: 47.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sacatepéquez -> Chinique  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sacatepéquez -> Rabinal  [label= " CP: 123.0 	TP: 62.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Sacatepéquez -> SantaCatarinaLaTinta  [label= " CP: 62.0 	TP: 456.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Sacatepéquez -> LosAmates  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+Sacatepéquez -> Quezaltepeque  [label= " CP: 453.0 	TP: 42.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Sacatepéquez -> Comapa  [label= " CP: 42.0 	TP: 495.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Chimaltenango -> SanJosédelGolfo  [label= " CP: 123.0 	TP: 759.0
+CV: 42.0 	TV: 42.0
+   Distancia = 64.0",weight=50];
+Chimaltenango -> SanAntoniolaPaz  [label= " CP: 759.0 	TP: 63.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Chimaltenango -> Comalapa  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> SanJosé  [label= " CP: 425.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> Sololá  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> SanFranciscoelAlto  [label= " CP: 62.0 	TP: 456.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> Zunil  [label= " CP: 456.0 	TP: 51.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Chimaltenango -> Chicacao  [label= " CP: 51.0 	TP: 759.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Chimaltenango -> SanAntonioSacatepéquez  [label= " CP: 42.0 	TP: 495.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Chimaltenango -> SanCristóbalCucho  [label= " CP: 495.0 	TP: 425.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Chimaltenango -> SanJuanAtitán  [label= " CP: 425.0 	TP: 46.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> Zacualpa  [label= " CP: 46.0 	TP: 62.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> Cubulco  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> Raxruhá  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> Izabalmunicipionodeclarado  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> SanJacinto  [label= " CP: 759.0 	TP: 63.0
+CV: 32.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Chimaltenango -> Jalpatagua  [label= " CP: 63.0 	TP: 425.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Escuintla -> Palencia  [label= " CP: 456.0 	TP: 495.0
+CV: 63.0 	TV: 85.0
+   Distancia = 78.0",weight=50];
+Escuintla -> ElProgresomunicipionodeclarado  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Escuintla -> Iztapa  [label= " CP: 123.0 	TP: 62.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Escuintla -> SanJoséChacayá  [label= " CP: 62.0 	TP: 456.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Escuintla -> SanAndrésXecul  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Escuintla -> Colomba  [label= " CP: 453.0 	TP: 42.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Escuintla -> Patulul  [label= " CP: 42.0 	TP: 495.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Escuintla -> Comitancillo  [label= " CP: 63.0 	TP: 425.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Escuintla -> Sipacapa  [label= " CP: 425.0 	TP: 123.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+Escuintla -> SantaEulalia  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Escuintla -> Chajul  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Escuintla -> Granados  [label= " CP: 456.0 	TP: 51.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Escuintla -> AltaVerapazmunicipionodeclarado  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Escuintla -> Zacapa  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Escuintla -> Conguaco  [label= " CP: 47.0 	TP: 123.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+SantaRosa -> Chinautla  [label= " CP: 321.0 	TP: 425.0
+CV: 47.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+SantaRosa -> AntiguaGuatemala  [label= " CP: 425.0 	TP: 46.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+SantaRosa -> Palín  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+SantaRosa -> SantaMaríaVisitación  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+SantaRosa -> Momostenango  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+SantaRosa -> SanFranciscolaUnión  [label= " CP: 759.0 	TP: 63.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+SantaRosa -> SantaBárbara  [label= " CP: 63.0 	TP: 425.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+SantaRosa -> SanMiguelIxtahuacán  [label= " CP: 47.0 	TP: 123.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+SantaRosa -> EsquipulasPaloGordo  [label= " CP: 123.0 	TP: 62.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+SantaRosa -> SanMateoIxtatán  [label= " CP: 62.0 	TP: 456.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+SantaRosa -> Chichicastenango  [label= " CP: 456.0 	TP: 51.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+SantaRosa -> ElChol  [label= " CP: 453.0 	TP: 42.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+SantaRosa -> Flores  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+SantaRosa -> Estanzuela  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+SantaRosa -> Chiquimulamunicipionodeclarado  [label= " CP: 425.0 	TP: 46.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+SantaRosa -> Moyuta  [label= " CP: 46.0 	TP: 555.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Sololá -> SanPedroAyampuc  [label= " CP: 147.0 	TP: 123.0
+CV: 46.0 	TV: 24.0
+   Distancia = 43.0",weight=50];
+Sololá -> Jocotenango  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+Sololá -> Patzún  [label= " CP: 555.0 	TP: 50.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Sololá -> SanVicentePacaya  [label= " CP: 456.0 	TP: 51.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sololá -> SantaLucíaUtatlán  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sololá -> SantaMaríaChiquimula  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Sololá -> ElPalmar  [label= " CP: 495.0 	TP: 47.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Sololá -> SanJuanBautista  [label= " CP: 47.0 	TP: 123.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Sololá -> ConcepciónTutuapa  [label= " CP: 46.0 	TP: 62.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Sololá -> RíoBlanco  [label= " CP: 555.0 	TP: 50.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Sololá -> Colotenango  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Sololá -> Patzité  [label= " CP: 453.0 	TP: 42.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sololá -> SanJerónimo  [label= " CP: 759.0 	TP: 63.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sololá -> SanJosé  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Sololá -> RíoHondo  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Sololá -> Jalapa  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+Sololá -> Pasaco  [label= " CP: 555.0 	TP: 456.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+Totonicapán -> Mixco  [label= " CP: 159.0 	TP: 62.0
+CV: 55.0 	TV: 24.0
+   Distancia = 51.0",weight=50];
+Totonicapán -> Pastores  [label= " CP: 62.0 	TP: 456.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Totonicapán -> SanMiguelPochuta  [label= " CP: 456.0 	TP: 51.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Totonicapán -> NuevaConcepción  [label= " CP: 453.0 	TP: 42.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Totonicapán -> Nahualá  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Totonicapán -> SantaLucíalaReforma  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Totonicapán -> Coatepeque  [label= " CP: 425.0 	TP: 46.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Totonicapán -> SantoTomaslaUnión  [label= " CP: 46.0 	TP: 555.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Totonicapán -> Tacaná  [label= " CP: 555.0 	TP: 50.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Totonicapán -> SanLorenzo  [label= " CP: 456.0 	TP: 51.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Totonicapán -> SanSebastiánHuehuetenango  [label= " CP: 51.0 	TP: 759.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+Totonicapán -> SanAntonioIlotenango  [label= " CP: 759.0 	TP: 63.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Totonicapán -> Purulhá  [label= " CP: 495.0 	TP: 47.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Totonicapán -> SanBenito  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Totonicapán -> Gualán  [label= " CP: 46.0 	TP: 62.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Totonicapán -> SanPedroPinula  [label= " CP: 62.0 	TP: 456.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Totonicapán -> SanJoséAcatempa  [label= " CP: 456.0 	TP: 453.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Quetzaltenango -> SanPedroSacatepéquez  [label= " CP: 555.0 	TP: 50.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Quetzaltenango -> Sumpango  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Quetzaltenango -> Patzicía  [label= " CP: 453.0 	TP: 42.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+Quetzaltenango -> Sipacate  [label= " CP: 759.0 	TP: 63.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quetzaltenango -> SantaCatarinaIxtahuacán  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quetzaltenango -> SanBartoloAguasCalientes  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quetzaltenango -> Génova  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Quetzaltenango -> Sibinal  [label= " CP: 456.0 	TP: 51.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+Quetzaltenango -> LaBlanca  [label= " CP: 453.0 	TP: 42.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Quetzaltenango -> Tectitán  [label= " CP: 42.0 	TP: 495.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+Quetzaltenango -> SanPedroJocopilas  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Quetzaltenango -> BajaVerapazmunicipionodeclarado  [label= " CP: 425.0 	TP: 46.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quetzaltenango -> SanAndrés  [label= " CP: 46.0 	TP: 555.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quetzaltenango -> Teculután  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quetzaltenango -> SanLuisJilotepeque  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Quetzaltenango -> Quesada  [label= " CP: 453.0 	TP: 759.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Suchitepéquez -> SanJuanSacatepéquez  [label= " CP: 456.0 	TP: 51.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+Suchitepéquez -> SantoDomingoXenacoj  [label= " CP: 51.0 	TP: 759.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Suchitepéquez -> SantaCruzBalanyá  [label= " CP: 759.0 	TP: 63.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+Suchitepéquez -> Escuintlamunicipionodeclarado  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Suchitepéquez -> SantaClaralaLaguna  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Suchitepéquez -> Totonicapánmunicipionodeclarado  [label= " CP: 46.0 	TP: 62.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Suchitepéquez -> FloresCostaCuca  [label= " CP: 62.0 	TP: 456.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Suchitepéquez -> Tajumulco  [label= " CP: 453.0 	TP: 42.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Suchitepéquez -> SanMarcosmunicipionodeclarado  [label= " CP: 759.0 	TP: 63.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Suchitepéquez -> ConcepciónHuista  [label= " CP: 63.0 	TP: 425.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Suchitepéquez -> Cunén  [label= " CP: 425.0 	TP: 46.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Suchitepéquez -> Cobán  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Suchitepéquez -> LaLibertad  [label= " CP: 555.0 	TP: 456.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Suchitepéquez -> Usumatlán  [label= " CP: 456.0 	TP: 51.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Suchitepéquez -> SanManuelChaparrón  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Huehuetenango -> Fraijanes  [label= " CP: 495.0 	TP: 47.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+Huehuetenango -> SanLucasSacatepéquez  [label= " CP: 47.0 	TP: 123.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+Huehuetenango -> SanAndrésItzapa  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Huehuetenango -> SantaRosadeLima  [label= " CP: 62.0 	TP: 456.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+Huehuetenango -> Panajachel  [label= " CP: 456.0 	TP: 453.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Huehuetenango -> Olintepeque  [label= " CP: 453.0 	TP: 42.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Huehuetenango -> Quetzaltenangomunicipionodeclarado  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Huehuetenango -> Suchitepéquezmunicipionodeclarado  [label= " CP: 495.0 	TP: 425.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Huehuetenango -> NuevoProgreso  [label= " CP: 425.0 	TP: 46.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Huehuetenango -> Malacatancito  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Huehuetenango -> SanSebastiánCoatán  [label= " CP: 555.0 	TP: 50.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Huehuetenango -> SantaMaríaNebaj  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Huehuetenango -> Dolores  [label= " CP: 759.0 	TP: 495.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Huehuetenango -> LaUnión  [label= " CP: 495.0 	TP: 47.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Huehuetenango -> Mataquescuintla  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quiché -> Amatitlán  [label= " CP: 425.0 	TP: 46.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Quiché -> SantaLucíaMilpasAltas  [label= " CP: 46.0 	TP: 62.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Quiché -> Parramos  [label= " CP: 62.0 	TP: 456.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Quiché -> Casillas  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Quiché -> SantaCatarinaPalopó  [label= " CP: 453.0 	TP: 759.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Quiché -> SanCarlosSija  [label= " CP: 759.0 	TP: 63.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quiché -> Mazatenango  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quiché -> Retalhuleu  [label= " CP: 425.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quiché -> ElTumbador  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Quiché -> Cuilco  [label= " CP: 62.0 	TP: 456.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Quiché -> Barrillas  [label= " CP: 456.0 	TP: 51.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Quiché -> SanAndrésSajcabajá  [label= " CP: 51.0 	TP: 759.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Quiché -> SanLuis  [label= " CP: 495.0 	TP: 425.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quiché -> Huité  [label= " CP: 425.0 	TP: 46.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Quiché -> Jalapamunicipionodeclarado  [label= " CP: 46.0 	TP: 62.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+BajaVerapaz -> VillaNueva  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+BajaVerapaz -> MagdalenaMilpasAltas  [label= " CP: 555.0 	TP: 50.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+BajaVerapaz -> Zaragoza  [label= " CP: 50.0 	TP: 453.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+BajaVerapaz -> SanRafaellasFlores  [label= " CP: 51.0 	TP: 759.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+BajaVerapaz -> SanAntonioPalopó  [label= " CP: 759.0 	TP: 495.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+BajaVerapaz -> Sibilia  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+BajaVerapaz -> Cuyotenango  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+BajaVerapaz -> SanSebastián  [label= " CP: 123.0 	TP: 62.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+BajaVerapaz -> SanJoséelRodeo  [label= " CP: 62.0 	TP: 456.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+BajaVerapaz -> Nentón  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+BajaVerapaz -> Aguacatán  [label= " CP: 453.0 	TP: 42.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+BajaVerapaz -> SanMiguelUspantán  [label= " CP: 42.0 	TP: 495.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+BajaVerapaz -> Tucurú  [label= " CP: 63.0 	TP: 425.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+BajaVerapaz -> Sayaxché  [label= " CP: 425.0 	TP: 123.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+BajaVerapaz -> SanJorge  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+BajaVerapaz -> Jutiapa  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+AltaVerapaz -> VillaCanales  [label= " CP: 62.0 	TP: 456.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+AltaVerapaz -> SantaMaríadeJesús  [label= " CP: 456.0 	TP: 51.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+AltaVerapaz -> ElTejar  [label= " CP: 51.0 	TP: 759.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+AltaVerapaz -> Oratorio  [label= " CP: 42.0 	TP: 495.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+AltaVerapaz -> SanLucasTolimán  [label= " CP: 495.0 	TP: 425.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+AltaVerapaz -> Cabricán  [label= " CP: 425.0 	TP: 46.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+AltaVerapaz -> SanFranciscoZapotitlán  [label= " CP: 46.0 	TP: 62.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+AltaVerapaz -> SantaCruzMuluá  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+AltaVerapaz -> Malacatán  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+AltaVerapaz -> SanPedroNecta  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+AltaVerapaz -> SanRafaelPetzal  [label= " CP: 759.0 	TP: 63.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+AltaVerapaz -> Sacapulas  [label= " CP: 63.0 	TP: 425.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+AltaVerapaz -> Panzós  [label= " CP: 47.0 	TP: 123.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+AltaVerapaz -> MelchordeMencos  [label= " CP: 123.0 	TP: 62.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+AltaVerapaz -> ElProgreso  [label= " CP: 456.0 	TP: 51.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Petén -> Petapa  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Petén -> CiudadVieja  [label= " CP: 453.0 	TP: 42.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Petén -> Chimaltenangomunicipionodeclarado  [label= " CP: 42.0 	TP: 495.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Petén -> SanJuanTecuaco  [label= " CP: 63.0 	TP: 425.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Petén -> SantaCruzlaLaguna  [label= " CP: 425.0 	TP: 123.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Petén -> Cajolá  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Petén -> SanBernardino  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Petén -> SanMartínZapotitlán  [label= " CP: 456.0 	TP: 51.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Petén -> Catarina  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Petén -> Jacaltenango  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Petén -> SanGasparIxchil  [label= " CP: 495.0 	TP: 47.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Petén -> SanBartoloméJocotenango  [label= " CP: 47.0 	TP: 123.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Petén -> Senahú  [label= " CP: 46.0 	TP: 62.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Petén -> Poptún  [label= " CP: 555.0 	TP: 50.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Petén -> Chiquimula  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Petén -> SantaCatarinaMita  [label= " CP: 453.0 	TP: 42.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Izabal -> Guatemalamunicipionodeclarado  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Izabal -> SanMiguelDueñas  [label= " CP: 759.0 	TP: 63.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Izabal -> Escuintla  [label= " CP: 63.0 	TP: 425.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Izabal -> Chiquimulilla  [label= " CP: 47.0 	TP: 123.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Izabal -> SanMiguelSiguilá  [label= " CP: 62.0 	TP: 456.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+Izabal -> SanJoséelÍdolo  [label= " CP: 456.0 	TP: 51.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Izabal -> SanFelipe  [label= " CP: 453.0 	TP: 42.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Izabal -> Ayutla  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Izabal -> SanPedroSoloma  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Izabal -> SantiagoChimaltenango  [label= " CP: 425.0 	TP: 46.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+Izabal -> Canillá  [label= " CP: 46.0 	TP: 555.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+Izabal -> SanPedroCarchá  [label= " CP: 555.0 	TP: 50.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Izabal -> LasCruces  [label= " CP: 456.0 	TP: 51.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Izabal -> SanJosélaArada  [label= " CP: 51.0 	TP: 759.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Izabal -> AguaBlanca  [label= " CP: 759.0 	TP: 63.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Zacapa -> Guastatoya  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Zacapa -> SanJuanAlotenango  [label= " CP: 495.0 	TP: 47.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Zacapa -> SantaLucíaCotzumalguapa  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+Zacapa -> Taxisco  [label= " CP: 46.0 	TP: 62.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+Zacapa -> SanJuanOstuncalco  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+Zacapa -> SantoDomingoSuchitepéquez  [label= " CP: 453.0 	TP: 42.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Zacapa -> SanAndrésVillaSeca  [label= " CP: 759.0 	TP: 63.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Zacapa -> Ocós  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Zacapa -> SanIldefonsoIxtahuacán  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Zacapa -> SantaAnaHuista  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Zacapa -> Chicamán  [label= " CP: 555.0 	TP: 456.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Zacapa -> SanJuanChamelco  [label= " CP: 456.0 	TP: 51.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Zacapa -> ElChal  [label= " CP: 453.0 	TP: 42.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Zacapa -> SanJuanErmita  [label= " CP: 42.0 	TP: 495.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+Zacapa -> AsunciónMita  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chiquimula -> Morazán  [label= " CP: 63.0 	TP: 425.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chiquimula -> SanAntonioAguasCalientes  [label= " CP: 425.0 	TP: 46.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Chiquimula -> LaDemocracia  [label= " CP: 46.0 	TP: 555.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Chiquimula -> SantaMaríaIxhuatán  [label= " CP: 555.0 	TP: 50.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Chiquimula -> SanJuanlaLaguna  [label= " CP: 456.0 	TP: 51.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Chiquimula -> SanMateo  [label= " CP: 51.0 	TP: 759.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Chiquimula -> SanLorenzo  [label= " CP: 759.0 	TP: 63.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Chiquimula -> Champerico  [label= " CP: 495.0 	TP: 47.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chiquimula -> SanPablo  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chiquimula -> SantaBárbara  [label= " CP: 46.0 	TP: 62.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Chiquimula -> UniónCantinil  [label= " CP: 62.0 	TP: 456.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Chiquimula -> Ixcán  [label= " CP: 456.0 	TP: 453.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Chiquimula -> Lanquín  [label= " CP: 453.0 	TP: 42.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Chiquimula -> Peténmunicipionodeclarado  [label= " CP: 759.0 	TP: 63.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Chiquimula -> Jocotán  [label= " CP: 63.0 	TP: 425.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+Chiquimula -> Yupiltepeque  [label= " CP: 425.0 	TP: 46.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Jalapa -> SanAgustínAcasaguastlán  [label= " CP: 47.0 	TP: 123.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Jalapa -> SantaCatarinaBarahona  [label= " CP: 123.0 	TP: 555.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Jalapa -> Siquinalá  [label= " CP: 555.0 	TP: 456.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Jalapa -> Guazacapán  [label= " CP: 456.0 	TP: 51.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Jalapa -> SanPedrolaLaguna  [label= " CP: 453.0 	TP: 42.0
+CV: 62.0 	TV: 24.0
+   Distancia = 55.0",weight=50];
+Jalapa -> ConcepciónChiquirichapa  [label= " CP: 42.0 	TP: 495.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Jalapa -> Samayac  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+Jalapa -> NuevoSanCarlos  [label= " CP: 425.0 	TP: 46.0
+CV: 42.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Jalapa -> ElQuetzal  [label= " CP: 46.0 	TP: 555.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Jalapa -> LaLibertad  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Jalapa -> Petatán  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Jalapa -> Pachalum  [label= " CP: 453.0 	TP: 759.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+Jalapa -> Cahabón  [label= " CP: 759.0 	TP: 63.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+Jalapa -> PuertoBarrios  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Jalapa -> Camotán  [label= " CP: 47.0 	TP: 123.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Jalapa -> Atescatempa  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Jutiapa -> SanCristóbalAcasaguastlán  [label= " CP: 46.0 	TP: 62.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Jutiapa -> Sacatepéquezmunicipionodeclarado  [label= " CP: 62.0 	TP: 456.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Jutiapa -> Masagua  [label= " CP: 456.0 	TP: 453.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Jutiapa -> SantaCruzNaranjo  [label= " CP: 453.0 	TP: 42.0
+CV: 24.0 	TV: 24.0
+   Distancia = 85.0",weight=50];
+Jutiapa -> SantiagoAtitlán  [label= " CP: 759.0 	TP: 63.0
+CV: 32.0 	TV: 24.0
+   Distancia = 62.0",weight=50];
+Jutiapa -> SanMartínSacatepéquez  [label= " CP: 63.0 	TP: 425.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Jutiapa -> SanPabloJocopilas  [label= " CP: 425.0 	TP: 46.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
+Jutiapa -> ElAsintal  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 55.0
+   Distancia = 42.0",weight=50];
+Jutiapa -> LaReforma  [label= " CP: 555.0 	TP: 456.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Jutiapa -> Huehuetenangomunicipionodeclarado  [label= " CP: 51.0 	TP: 759.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Jutiapa -> Quichémunicipionodeclarado  [label= " CP: 759.0 	TP: 495.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Jutiapa -> Chisec  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Jutiapa -> Livingston  [label= " CP: 425.0 	TP: 46.0
+CV: 32.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Jutiapa -> Olopa  [label= " CP: 46.0 	TP: 62.0
+CV: 42.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Jutiapa -> Jerez  [label= " CP: 62.0 	TP: 456.0
+CV: 42.0 	TV: 32.0
+   Distancia = 42.0",weight=50];
+Guatemala -> ElJícaro  [label= " CP: 555.0 	TP: 50.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Guatemala -> Chimaltenango  [label= " CP: 50.0 	TP: 453.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Guatemala -> Tiquisate  [label= " CP: 453.0 	TP: 759.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Guatemala -> PuebloNuevoViñas  [label= " CP: 759.0 	TP: 63.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Guatemala -> Sololámunicipionodeclarado  [label= " CP: 495.0 	TP: 47.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Guatemala -> Almolonga  [label= " CP: 47.0 	TP: 123.0
+CV: 55.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Guatemala -> SanAntonioSuchitepéquez  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 85.0
+   Distancia = 42.0",weight=50];
+Guatemala -> Retalhuleumunicipionodeclarado  [label= " CP: 62.0 	TP: 456.0
+CV: 42.0 	TV: 62.0
+   Distancia = 42.0",weight=50];
+Guatemala -> Pajapita  [label= " CP: 456.0 	TP: 453.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Guatemala -> SantaCruzdelQuiché  [label= " CP: 42.0 	TP: 495.0
+CV: 24.0 	TV: 42.0
+   Distancia = 24.0",weight=50];
+Guatemala -> Salamá  [label= " CP: 495.0 	TP: 425.0
+CV: 24.0 	TV: 24.0
+   Distancia = 24.0",weight=50];
+Guatemala -> Chahal  [label= " CP: 425.0 	TP: 46.0
+CV: 85.0 	TV: 24.0
+   Distancia = 42.0",weight=50];
+Guatemala -> ElEstor  [label= " CP: 123.0 	TP: 555.0
+CV: 42.0 	TV: 24.0
+   Distancia = 32.0",weight=50];
+Guatemala -> ElAdelanto  [label= " CP: 50.0 	TP: 453.0
+CV: 42.0 	TV: 42.0
+   Distancia = 42.0",weight=50];
 }

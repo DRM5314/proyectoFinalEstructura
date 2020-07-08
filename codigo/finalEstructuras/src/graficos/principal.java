@@ -55,6 +55,8 @@ public class principal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         dialogoEntrada.setSize(new java.awt.Dimension(936, 441));
 
@@ -158,6 +160,9 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
+        labelErrorRuta.setFont(new java.awt.Font("Open Sans Extrabold", 0, 18)); // NOI18N
+        labelErrorRuta.setForeground(new java.awt.Color(181, 74, 74));
+
         listadoRutasFav.setFont(new java.awt.Font("Open Sans Extrabold", 0, 18)); // NOI18N
 
         jLabel4.setText("Rutas favoritas");
@@ -192,6 +197,22 @@ public class principal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem2);
 
+        jMenuItem3.setText("Manual usuario");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("Manual tecnico");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -211,7 +232,7 @@ public class principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(listadoRutasFav, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(listadoRutasFav, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botonAux)
                 .addGap(32, 32, 32))
@@ -275,7 +296,7 @@ public class principal extends javax.swing.JFrame {
                     .addComponent(botonObtenerRuta)
                     .addComponent(radioMejorRuta)
                     .addComponent(jRadioButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -477,6 +498,14 @@ public class principal extends javax.swing.JFrame {
         manejadorArchivo.manejador.abrirArchivo1("../arbol.png");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        manejadorArchivo.manejador.abrirArchivo1("../Manual Usuario.pdf");
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        manejadorArchivo.manejador.abrirArchivo1("../Manual tecnico.pdf");
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     public origen[] getOrigenes() {
         return origenes;
     }
@@ -535,6 +564,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelErrorRuta;

@@ -1,5 +1,4 @@
 digraph g { 
-node [shape = record,height=.1];node0 [label ="<f0> |150.0|<f1>"];
-
-
+node [shape = record,height=.1];
+node0 [label ="<f0> |88.0|<f1>"];
 }
