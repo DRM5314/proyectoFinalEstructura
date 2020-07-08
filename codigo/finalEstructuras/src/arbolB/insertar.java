@@ -1,6 +1,8 @@
 
 package arbolB;
 
+import java.util.ArrayList;
+
 public class insertar {
     public static estructura [] insetarDato(double valor,estructura indices[],boolean expancion,String [] lugar){
         for (int i = 0; i < indices.length; i++) {
@@ -179,5 +181,26 @@ public class insertar {
         }
         if(retorno!= null)System.out.println("la raiz es "+retorno.dato);
         return retorno;
+    }
+    public static estructura [] borrar (estructura borrar[],String ruta[]){
+        estructura aux[] = borrar;
+        int contador = 0;
+        while(aux[contador]!=null){
+            if(aux[contador].lugar==ruta){
+                aux[contador]=null;
+                if(aux[contador].hijoD!=null){
+                    aux = aux[contador].hijoD;
+                }else if(aux[contador].hijoD==null){
+                    aux[contador] = null;
+                    if(aux[contador-1]!=null){
+                        aux[contador] = aux[contador-1];
+                    }else
+                    if(aux[contador+1]!=null){
+                        aux[contador] = aux[contador+1];
+                    }
+                }
+            }
+        }
+        return aux;
     }
 }
