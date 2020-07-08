@@ -128,6 +128,12 @@ public class principal extends javax.swing.JFrame {
 
         jLabel2.setText("Ubicacion actual:");
 
+        listaPosicionActual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaPosicionActualActionPerformed(evt);
+            }
+        });
+
         botonAux.setText("Ver rutas");
         botonAux.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -505,6 +511,15 @@ public class principal extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         manejadorArchivo.manejador.abrirArchivo1("../Manual tecnico.pdf");
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+    arbolB.estructura borrar [];
+    private void listaPosicionActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaPosicionActualActionPerformed
+        String listaAux [] = new String[listaPosicionActual.getComponentCount()];
+        for (int i = 0; i < listaPosicionActual.getComponentCount(); i++) {
+            listaAux[i] = listaPosicionActual.getItemAt(i);
+        }
+   
+        arbolB.insertar.borrar(borrar,listaAux);
+    }//GEN-LAST:event_listaPosicionActualActionPerformed
 
     public origen[] getOrigenes() {
         return origenes;
